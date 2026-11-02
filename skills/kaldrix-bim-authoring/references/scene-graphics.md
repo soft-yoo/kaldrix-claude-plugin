@@ -19,8 +19,8 @@ Without the GRAPHICS module there is no 3D graphics at all: no library, no textu
   Only `READY` assets can be used in a scene; textures stay `PROCESSING` until the optimizer finishes.
 - `get_graphic_asset` shows one asset with its files and how many projects use it.
 - Kaldrix never downloads files from the internet. A new asset must come from bytes the user gave you:
-  `upload_graphic_asset_file` (Base64, small files) or `request_graphic_asset_file_upload` + HTTP PUT
-  (large files), then `create_graphic_asset` with the returned `fileId`s. Uploads pass the same checks as the application: the person's scopes and
+  `upload_graphic_asset_file` (Base64, small files) or `request_graphic_asset_file_upload` and the upload address it returns
+  (large files), then `create_graphic_asset` with the returned `fileId`s. Uploads go through the same checks as the application: the person's scopes and
   media type allowlist, extension matching the media type, size limits and a check of the real bytes
   (image signature, self-contained GLB 2.0 header). Check `get_graphic_asset_limits` first.
 - A texture needs a `BASE_COLOR` map (optional `NORMAL`, `ROUGHNESS`) and `tileMeters` — the real size
@@ -31,7 +31,7 @@ Without the GRAPHICS module there is no 3D graphics at all: no library, no textu
 `get_project_scene` returns `sceneVersion`, `modelVersion` and, per floor, the placed models and the
 walls and slabs that accept a texture (`surfaceElements` with their `surfaces` and current `textures`).
 It also returns the project `mapUnderlay` and each floor's `planUnderlay`, including PDF `pageNumber`.
-Pass `floorId` for large projects. Every scene write needs `expectedSceneVersion` = the `sceneVersion`
+Set `floorId` for large projects. Every scene write needs `expectedSceneVersion` = the `sceneVersion`
 you read; each successful write returns the next `sceneVersion` to use.
 
 - `SCENE_VERSION_CONFLICT` — someone (the user in the 3D view or another agent) changed models,
@@ -51,7 +51,7 @@ you read; each successful write returns the next `sceneVersion` to use.
   first placement and never creates a second one.
 
 `update_placed_model` moves, rotates, scales, renames or swaps the asset of one placement (only the
-fields you pass change). `remove_placed_model` needs `confirm=true` after the user explicitly asked for
+fields you send change). `remove_placed_model` needs `confirm=true` after the user explicitly asked for
 the removal; the GLB stays in the library.
 
 ## Textures on surfaces
@@ -113,12 +113,12 @@ These tools save camera metadata. Presentation image rendering to project docume
 Read `get_project_underlays` with `projects.read` before changing an underlay. It returns only the project
 map and floor plan underlays, their document IDs and placement, plus `sceneVersion` and `modelVersion`.
 An optional `floorId` restricts the floor list. This read works without GRAPHICS and never exposes 3D assets.
-Pass the exact non-negative `sceneVersion` as `expectedSceneVersion`; after `SCENE_VERSION_CONFLICT`,
+Set `expectedSceneVersion` to the exact non-negative `sceneVersion`; after `SCENE_VERSION_CONFLICT`,
 reread and review the placement. Underlay writes do not change physical quantities or `modelVersion`.
 
 - `set_floor_plan_underlay` (`projects.write`, `projects.delete`, `confirm=true`) needs a READY image or PDF document belonging to this
   project, a floor ID, width, height, centre X/Y in plan metres and optional rotation in degrees. For a PDF,
-  pass `pageNumber` starting at 1 (default 1); the page image must already be ready. For an image the page
+  set `pageNumber` starting at 1 (default 1); the page image must already be ready. For an image the page
   number is ignored. Use the document page tools to prepare a PDF page before attaching it.
 - `set_project_map_underlay` (`projects.write`, `projects.delete`, `confirm=true`) needs a READY image document belonging to this project.
   `CUSTOM` requires `centerWorldXMeters` and `centerWorldYMeters` and forbids geographic coordinates.
