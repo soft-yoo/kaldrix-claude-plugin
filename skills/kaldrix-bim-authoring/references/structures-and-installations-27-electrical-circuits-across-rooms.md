@@ -31,7 +31,7 @@ FEEDER workflow above. Plain installation routes in `get_floor_detail` do not co
    `list_installation_circuits` and `get_installation_conduit_catalog`. Resolve real IDs and room
    membership; preserve user-entered names. Inspect existing same-medium memberships before writes.
 2. For a draft call `get_installation_circuit_selection` with the current `expectedModelVersion`,
-   `sourcePointId` and `medium`. For edits also pass `editingCircuitId`. Use `typicalPointIds` as
+   `sourcePointId` and `medium`. For edits also set `editingCircuitId`. Use `typicalPointIds` as
    suggestions, intersect them with the requested room IDs, and use `eligiblePointIds` for explicit
    user choices. Request POWER and LIGHTING separately; do not copy all ELECTRICAL points into both.
 3. For a whole-house starting proposal, call `suggest_installation_circuits` with

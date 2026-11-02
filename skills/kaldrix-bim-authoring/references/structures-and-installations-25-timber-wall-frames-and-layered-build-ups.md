@@ -32,7 +32,7 @@ thickness to the sum of layers (STRUCTURES module).
    L corners and a pair at T junctions; at each opening `KING_STUD` ×2, `TRIMMER` ×2 under a `HEADER` (120/160/200/240 mm
    for openings ≤ 1.0/1.8/2.4/wider m; `doubleHeader=true` previews doubles), windows a `SILL` with `CRIPPLE` studs under
    it, and `CRIPPLE` studs above every header (stud grid). Regular studs inside openings are dropped. Read `warnings`
-   (opening closer than 2 studs to a wall end, no room for a header) and `notes`. Pass `buildUpId` with `wallId` to preview
+   (opening closer than 2 studs to a wall end, no room for a header) and `notes`. Set `buildUpId` with `wallId` to preview
    another build-up before `assign_build_up`. The frame follows wall and opening edits automatically.
 7. Frame estimate: `WALL` + `WALL_FRAME_ROLE_LENGTH` (`MB`) / `WALL_FRAME_ROLE_VOLUME` (`M3`) / `WALL_FRAME_ROLE_COUNT`
    (`PCS`) with `elementSubtypes` = roles (at least one; WallType names may narrow the walls), e.g. headers
@@ -48,7 +48,7 @@ thickness to the sum of layers (STRUCTURES module).
    `TRIMMER` joists on both sides (`doubleTrimmers=true` previews doubles), `HEADER` members across it and shortened
    joists resting on the headers. Batten layers below run perpendicular to the layer above, interrupted at holes.
    Steel CD profiles (`STEEL_FRAME`) are not generated. Layers are placed top → bottom from the slab top
-   (`baseElevation`). Pass `buildUpId` with `slabId` to preview another build-up.
+   (`baseElevation`). Set `buildUpId` with `slabId` to preview another build-up.
    Roof windows and chimneys: `add_slab_opening` on a roof slab (kind ROOF_WINDOW / CHIMNEY, centerX/centerY + width
    along the eaves × length along the slope, optional flashingKind PROFILED / FLAT). The roof framing (ROOF_RAFTERS)
    then cuts the rafters crossing the opening, adds `HEADER` members above and below it and `TRIMMER` rafters at its

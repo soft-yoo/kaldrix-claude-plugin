@@ -1,6 +1,6 @@
 ## Building Scope
 
-Read `get_project_detail` first and select a building UUID. Pass `buildingId` to
+Read `get_project_detail` first and select a building UUID. Set `buildingId` to
 `create_project_estimate`; omit it only when the user wants to price the whole project
 (including site floors). The estimate returns its fixed `buildingId`; copying preserves it.
 Pass this estimate's `estimateId` to `get_estimate_scope_proposals`,

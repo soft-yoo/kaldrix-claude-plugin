@@ -12,7 +12,7 @@ Whole floor at once: `add_installation_point_presets_for_floor` (projectId, floo
 (kitchen → `KITCHEN`, bathroom → `BATHROOM`, corridor/staircase → `HALL`, …) in one atomic call with one model
 version bump — the same contract as the app. Points a room already has are not duplicated, so rooms that are already
 complete are skipped; the result lists the preset and added count per room. More than 200 points in total → call again
-with `presets` for smaller groups of rooms. For a focused workflow, pass `system` (ELECTRICAL, WATER, DRAINAGE, HEATING,
+with `presets` for smaller groups of rooms. For a focused workflow, set `system` (ELECTRICAL, WATER, DRAINAGE, HEATING,
 GAS or VENTILATION) and the rooms in `presets`; only matching point kinds are planned and saved. Presets do not guarantee equipment for every
 branch in every room: use `add_installation_points` for individual equipment (for example gas appliances).
 Then read the returned modelVersion and plan circuits from the saved source and receiver IDs.

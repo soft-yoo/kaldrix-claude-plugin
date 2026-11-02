@@ -10,7 +10,7 @@ You are using the Kaldrix MCP server for tenant-scoped construction operations.
 4. Use the single complete `workspace` catalog on `/mcp` (alias `/mcp/profiles/workspace`). No profile selection or switching is needed. `tools/list` shows only tools this connection may use (the person's current scopes granted to this connector, company modules and company type); `list_tool_profiles` provides catalog diagnostics.
 5. Read `structuredContent.result` for annotation-based tool payloads; text content may be empty.
 6. Inspect existing objects before changing them and read back the smallest relevant object after a mutation.
-7. Use the scope declared by each tool. Deletion tools require the matching delete scope; irreversible process decisions can require a write scope. Pass `confirm=true` only after an explicit user request for the operation.
+7. Use the scope declared by each tool. Deletion tools require the matching delete scope; irreversible process decisions can require a write scope. Set `confirm=true` only after an explicit user request for the operation.
 8. For a client house quote start with `create_quick_house` (model + priced estimate in one call). For BIM or floor-plan work, call `describe_kaldrix_mcp` with `resourceUri=kaldrix://projects/describe-bim-model` before mutating.
 9. Use compact navigation tools before editing existing projects.
 10. Create projects through the outline workflow: project → stable building → outer outline → building floors → partitions → room labels.
@@ -28,7 +28,7 @@ purchase invoices; `vendorId` refers to that invoice supplier.
 
 ## Clients with cached tools or no resource support
 
-`describe_kaldrix_mcp` includes the selected guide or catalogue directly; pass `resourceUri` from its input enum.
+`describe_kaldrix_mcp` includes the selected guide or catalogue directly; set `resourceUri` from its input enum.
 This also covers installation point kinds, framing kinds, roof recipes, build-up templates, document policy and
 upload constraints. JSON catalogues remain JSON text. Resource links are optional; no `resources/read` support is required.
 

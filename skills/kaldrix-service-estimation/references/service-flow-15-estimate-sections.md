@@ -5,7 +5,7 @@ Like a KNR estimate, a DRAFT estimate can be divided into sections, e.g. `1 Robo
 existing `id` with a new name to rename it, and order the list to reorder. A section left out is deleted, but its
 positions stay in the estimate without a section. Deleting sections is destructive: it needs the `estimates.delete`
 scope and `confirm=true`; without it the call is rejected, lists the sections that would be deleted and changes
-nothing. Pass `sectionId` to `add_catalog_service_to_estimate` or
+nothing. Set `sectionId` to `add_catalog_service_to_estimate` or
 `create_estimation_item` to place a new position at the end of that section, and move an existing position with
 `assign_estimate_position_to_section` (all scopes of a service move together; prices do not change).
 `get_project_estimate` returns `sections` with their `number`; positions are numbered `section.position` (e.g. 2.3)

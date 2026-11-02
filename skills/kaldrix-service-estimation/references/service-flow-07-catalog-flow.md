@@ -22,7 +22,7 @@
    required results have been read.
 3. Create a missing material, labor rate, or equipment rate with `create_catalog_resource`. Enter `priceNet` in
    the stored currency of its target price list; no conversion is performed.
-   For a material bought in bags, buckets, packs or boards (unit `PACK` or `PCS`) you may pass `packageContent` and
+   For a material bought in bags, buckets, packs or boards (unit `PACK` or `PCS`) you may set `packageContent` and
    `packageContentUnit` (e.g. `25` + `kg` for a 25 kg bag, `1.44` + `m2` for a pack of panels). It is information only:
    the estimate never converts units, so when a builder needs 36 kg you can tell them it is `ceil(36 / 25) = 2` full
    bags. `update_catalog_resource` clears both fields when they are omitted.

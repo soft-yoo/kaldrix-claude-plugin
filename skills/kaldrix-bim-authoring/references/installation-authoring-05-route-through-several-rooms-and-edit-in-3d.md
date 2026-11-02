@@ -2,7 +2,7 @@
 
 Circuit plan coordinates use the shared project coordinate system. Plan `planX/planY` maps to 3D `x/z`; 3D `y` is height above the floor in metres. Routes may extend below finished floor level within backend bounds. Point mounting heights have their own stricter bounds. Read stored positions after snapping; do not assume requested positions survived unchanged.
 
-Choose CHAIN, STAR or TREE for an automatic route. Pass `routeOverrides:[{targetPointId,waypoints:[{x,y}]}]` to guide an automatic branch through chosen rooms. If automaticRoute3D is true, use waypoints3D instead of waypoints. Never send both. Once a manual network exists, edit its edges and junctions; changing topology does not replace that network.
+Choose CHAIN, STAR or TREE for an automatic route. Set `routeOverrides:[{targetPointId,waypoints:[{x,y}]}]` to guide an automatic branch through chosen rooms. If automaticRoute3D is true, use waypoints3D instead of waypoints. Never send both. Once a manual network exists, edit its edges and junctions; changing topology does not replace that network.
 
 To add a real junction, read the physical layout and pass nodeEdit.ADD with segmentIndex and a position on that segment (or edgeId for an existing network). Read the resulting node/edge IDs. For a preview use `preview_installation_circuit_node`; save exactly the same nodeEdit with `update_installation_circuit` at the reviewed version.
 

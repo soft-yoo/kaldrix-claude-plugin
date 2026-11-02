@@ -11,7 +11,7 @@ an installation look connected. Work through these steps for every requested tra
    warnings, then apply that exact reviewed version. Use the dedicated diffuser and underfloor previews for
    those systems. Read the stored positions and layouts after saving.
 3. For each automatic circuit, call `preview_circuit_optimization` with the current reviewed version and a
-   chosen goal: `LESS_MATERIAL`, `FEWER_CONNECTIONS`, `FEWER_WALL_PASSES` or `LOWEST_COST`. Pass
+   chosen goal: `LESS_MATERIAL`, `FEWER_CONNECTIONS`, `FEWER_WALL_PASSES` or `LOWEST_COST`. Set
    `maxBranches` from 0 to 64. The cost goal also needs an estimate with complete frozen model-derived rows;
    obtain it through the estimate workflow, not an invented price per metre.
 4. Inspect `before.segments` and `after.segments`, endpoint IDs, parallel runs, routing preference and

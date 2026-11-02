@@ -1,7 +1,7 @@
 ## Sockets and water in a kitchen
 
 1. `get_floor_detail` → find the kitchen `spaceId` and its outline, and the wall behind the worktop.
-2. `add_installation_points` with one call for the whole kitchen (1–200 points, atomic). For wall kinds pass
+2. `add_installation_points` with one call for the whole kitchen (1–200 points, atomic). For wall kinds set
    `wallId` and a plan point on the room side of the wall — the backend projects it onto the wall face and
    derives the facing:
 

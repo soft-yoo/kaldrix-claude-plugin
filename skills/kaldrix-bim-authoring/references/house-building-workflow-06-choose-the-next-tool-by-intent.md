@@ -4,7 +4,7 @@
 | --- | --- |
 | Change width or length proportionally | `set_building_outline` with `width` and `depth` (no outline); `set_floor_outline` with `width` and `depth` for an independent storey. Heights, wall thickness and equipment sizes stay fixed. |
 | Change the footprint shape | `set_building_outline` or `set_floor_outline` with polygon points; arbitrary reshaping is not proportional layout scaling. |
-| Place another building | Create its metadata with a new UUID; the first outline is placed beside existing buildings with a 10 m gap by default. For exact site coordinates pass `placeBesideBuildings=false`, then verify the stored outline. Use `move_building` for later placement. |
+| Place another building | Create its metadata with a new UUID; the first outline is placed beside existing buildings with a 10 m gap by default. For exact site coordinates set `placeBesideBuildings=false`, then verify the stored outline. Use `move_building` for later placement. |
 | Divide or merge the interior | `create_partition`, `update_wall` or `remove_wall`; read derived room IDs again before `label_room` or room-scoped work. |
 | Floor or ceiling structure | `preview_framing_system` then `create_framing_system`; omit both `spaceId` and `outline` for the current whole-storey footprint, use `spaceId` for one room, or explicit `outline` for a custom field. Do not copy the floor polygon when the structure should follow later resizing. |
 | Layered wall or slab | `list_build_ups` / `create_build_up_from_template`, then `assign_build_up` to real wall or slab IDs. Read `get_wall_frame` or `get_slab_frame`; avoid pricing the same material again as a framing system. |

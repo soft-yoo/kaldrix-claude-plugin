@@ -12,4 +12,4 @@ Prefer the installed focused skill and select the smallest relevant topic from i
 - Supplier (SUPPLIER companies only): maintain the catalog of the current wholesaler. Read the complete material before `update_supplier_material`: this is a replacement, so preserve all optional fields and `lastPriceCheck`. VAT is a fraction (0.23 for 23%). REPLACE imports need `supplier.delete` and `confirm=true`.
 - Supplier identity boundary: no MCP tool registers a supplier company, edits its public configuration or maintains a separate supplier address book. Purchase invoice suppliers are derived from the seller tax ID.
 
-`confirm_invoice_match` changes saved settlement links. Read the proposed match, ask the user, then pass `confirm=true`; both `settlements.write` and `settlements.delete` are required. This tool does not send an invoice to KSeF or make a payment.
+`confirm_invoice_match` changes saved settlement links. Read the proposed match, ask the user, then set `confirm=true`; both `settlements.write` and `settlements.delete` are required. This tool does not send an invoice to KSeF or make a payment.

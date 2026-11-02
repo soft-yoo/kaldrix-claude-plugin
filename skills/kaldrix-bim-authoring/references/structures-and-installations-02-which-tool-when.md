@@ -27,5 +27,5 @@
 | unsupported free editing as independent members, explicitly requested by the user | `explode_framing_system` (destructive, loses FRAMING_* quantities) | exploding a system for an edit already supported parametrically |
 
 Removals (`remove_installation_points`, `remove_installation_circuits`, `remove_installation_risers`, `remove_structural_members`,
-`remove_framing_system`, `explode_framing_system`, `explode_installation_circuit`, `remove_build_up`) are destructive: ask the user, then pass
+`remove_framing_system`, `explode_framing_system`, `explode_installation_circuit`, `remove_build_up`) are destructive: ask the user, then set
 `confirm=true`; they need the `projects.delete` scope.

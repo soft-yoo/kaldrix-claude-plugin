@@ -67,7 +67,7 @@ the existing floor heuristic and conservative source types. A manual scope repla
 removing a scope, ends automatic stage coverage for that position. The review itself writes nothing and never refreshes
 frozen amounts. After the user
 approves, call `apply_estimate_model_changes`: omit both lists to apply everything (changed rows and new elements),
-or pass `itemIds` (changed rows) and/or `addNewElementsTo` (`serviceOccurrenceId` of positions to extend) — a list
+or set `itemIds` (changed rows) and/or `addNewElementsTo` (`serviceOccurrenceId` of positions to extend) — a list
 that is omitted while the other is given means "none of these". It keeps each row's multiplier and id, adds each new
 element as its own scope and reprices the whole service occurrence. When a new element deliberately does not belong
 to a position (e.g. a socket priced in another position), ask the user and call `skip_estimate_new_elements`
