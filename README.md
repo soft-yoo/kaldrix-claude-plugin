@@ -10,6 +10,19 @@ You need a Kaldrix account. You sign in to Kaldrix when the plugin first connect
 the plugin stores no passwords or tokens. The plugin is free. Reading your data
 is always available; creating or changing data requires an active Kaldrix subscription.
 
+## Where your data goes
+
+- **Kaldrix MCP server** (`https://api.kaldrix.pl/mcp`): every read and change of your
+  Kaldrix data, for example projects, cost estimates, customers (names, emails, addresses),
+  invoices and contracts. Data you save stays in your company account until you delete it
+  or delete the account.
+- **Kaldrix file storage** (`https://s3.waw.io.cloud.ovh.net`, OVH, Warsaw): large files you
+  ask Claude to upload (documents, textures, 3D models) are sent with HTTP PUT to a one-time
+  upload address that the Kaldrix server returns. Small files go through the MCP server.
+- Sign-in uses OAuth in Claude. The plugin sends no other data and stores no passwords or tokens.
+
+Privacy policy: [kaldrix.pl/app-privacy.html](https://kaldrix.pl/app-privacy.html).
+
 ## Install in Claude Code
 
 ```bash
@@ -42,6 +55,11 @@ działa zawsze, a tworzenie i zmiana danych wymaga aktywnej subskrypcji Kaldrix.
 claude plugin marketplace add soft-yoo/kaldrix-claude-plugin
 claude plugin install kaldrixprod@kaldrix
 ```
+
+**Dokąd trafiają dane:** wszystkie odczyty i zmiany danych idą do serwera MCP Kaldrix
+(`https://api.kaldrix.pl/mcp`). Duże pliki (dokumenty, tekstury, modele 3D) Claude wysyła
+metodą PUT na jednorazowy adres magazynu plików Kaldrix w OVH (`https://s3.waw.io.cloud.ovh.net`),
+który zwraca serwer Kaldrix. Zapisane dane zostają na koncie firmy, dopóki ich nie usuniesz.
 
 ## License
 
