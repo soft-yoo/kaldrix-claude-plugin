@@ -1,0 +1,14 @@
+{
+  "name": "kaldrix",
+  "description": "Kaldrix plugin for construction projects, schedules and cost estimates.",
+  "owner": {
+    "name": "Soft-Yoo Piotr Kosmala"
+  },
+  "plugins": [
+    {
+      "name": "kaldrixprod",
+      "source": "./",
+      "description": "Work with Kaldrix construction projects, schedules and cost estimates using your connected account."
+    }
+  ]
+}

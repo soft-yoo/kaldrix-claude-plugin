@@ -1,0 +1,14 @@
+{
+  "name": "kaldrixprod",
+  "displayName": "Kaldrix",
+  "version": "1.0.5",
+  "description": "Work with Kaldrix construction projects, schedules and cost estimates using your connected account.",
+  "author": {
+    "name": "Soft-Yoo Piotr Kosmala"
+  },
+  "homepage": "https://kaldrix.pl/integracje.html",
+  "repository": "https://github.com/soft-yoo/kaldrix-claude-plugin",
+  "license": "MIT",
+  "privacyPolicyUrl": "https://kaldrix.pl/app-privacy.html",
+  "icon": "./assets/kaldrix-icon.png"
+}

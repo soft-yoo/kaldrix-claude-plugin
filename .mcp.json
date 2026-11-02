@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "kaldrix": {
+      "type": "http",
+      "url": "https://api.kaldrix.pl/mcp"
+    }
+  }
+}
