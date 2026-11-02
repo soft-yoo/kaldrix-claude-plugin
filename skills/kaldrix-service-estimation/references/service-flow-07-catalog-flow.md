@@ -1,5 +1,7 @@
 ## Catalog Flow
 
+`update_catalog_resource` replaces provided values, preserves omitted fields and clears fields only through explicit `clearFields`. Review the replacement with the user, then use `confirm=true` with `catalog.write` and `catalog.delete`.
+
 1. Call `list_price_lists` to see the company price lists (the default first) and `get_price_list` for one of them
    (name, stored currency, saved EUR rate, default service-composition markup, catalog version, status). Send the chosen `priceListId` to
    `list_catalog_resources`, `create_catalog_resource`, `list_service_recipes`, `create_service_recipe` and
@@ -25,7 +27,7 @@
    For a material bought in bags, buckets, packs or boards (unit `PACK` or `PCS`) you may set `packageContent` and
    `packageContentUnit` (e.g. `25` + `kg` for a 25 kg bag, `1.44` + `m2` for a pack of panels). It is information only:
    the estimate never converts units, so when a builder needs 36 kg you can tell them it is `ceil(36 / 25) = 2` full
-   bags. `update_catalog_resource` clears both fields when they are omitted.
+   bags. `update_catalog_resource` preserves omitted package fields; `clearFields=["packageContent"]` clears both.
 4. Call `list_service_recipes` before creating a duplicate recipe. Read the returned `quantityRule`, billing `unit`,
    `description`, `quantitySources` and component units. A `MANUAL` service requires a user-supplied quantity and
    is not added by `price_estimate_from_model`; its name alone does not imply a model binding.

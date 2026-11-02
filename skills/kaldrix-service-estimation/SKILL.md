@@ -31,6 +31,10 @@ Replacing saved estimate settings, rows, scopes, prices, recipe composition or
 generated PDFs also requires explicit confirmation in the current schemas.
 Scope replacement or a manual quantity/formula requires estimates.delete and
 confirm=true; append-only scope assignment stays on estimates.write.
+`set_estimate_discount` and `update_estimation_item` require both `estimates.write`
+and `estimates.delete`; `update_catalog_resource` requires `catalog.write` and
+`catalog.delete`. Review the replacement or clearing of saved data with the user,
+then set `confirm=true`, including for the first save through these tools.
 Read back saved changes and the backend checks; distinguish warnings, missing
 scope and a failed check from successful readiness.
 

@@ -6,7 +6,8 @@ The site point is separate from BIM geometry. Plan outlines use metres; geograph
    to choose when there are several matches or `truncated=true`; do not silently pick the first match.
 2. For a chosen map point, call `get_land_parcel_at(latitude, longitude)`. The backend returns the boundary, holes and
    area. The area is calculated from the geometry and may differ from the registered cadastral area. Preserve attribution.
-3. Save the user-chosen point with `set_project_location(projectId, latitude, longitude, ...)`. Optional address text
+3. Review the site-point change with the user, then save it with `set_project_location(projectId, latitude, longitude, ..., confirm=true)`.
+   The connection needs `project-settings.write` and `project-settings.delete`. Optional address text
    fields are patches: omitted = preserve, empty = clear. Existing map anchors and north rotation remain unchanged;
    the building does not move in its local plan. No new tenant-owned collection or file is created.
 4. Read `get_project_detail` to verify `project.address`, then verify the saved point with `get_land_parcel_at`. A parcel

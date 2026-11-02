@@ -16,6 +16,13 @@ If session guidance is not already loaded, call `describe_kaldrix_mcp` without
 arguments for the compact startup contract. Use the live schemas for current
 tool names, fields, units, side effects and confirmation requirements.
 
+Review saved-data replacements with the user before `confirm=true`. Updating a
+contract, warranty, crew assignment, time entry or task requires both write and
+delete consent in its own area. Invoice due-date and stage changes require
+`invoices.write`, `invoices.delete` and confirmation, including first assignments.
+Read the current schema before calling; an existing write-only connection needs
+new authorization for the required delete scopes, within the person's access.
+
 Choose one row below and read only its relevant files. Open another reference
 when the task reaches that stage or returned data exposes a dependency.
 

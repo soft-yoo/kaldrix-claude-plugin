@@ -35,7 +35,7 @@ removed by the backend from the building technology and geometry — never creat
    rebuilds a roof created from the outline (a hand-drawn roof is refused with `ROOF_SPACE_ROOF_EXISTS`).
 6. `create_roof` on the highest floor; a lower floor may get its own roof over the part not covered by a higher storey.
 7. Roof framing (`preview_framing_system` → `create_framing_system` `ROOF_RAFTERS`). Warning
-   `framing.warning.roofSupportHeights` → `fit_roof_to_wall_plates` (moves the roof onto the wall crown).
+   `framing.warning.roofSupportHeights` → `fit_roof_to_wall_plates` (rebuilds the roof onto the wall crown; `projects.write`, `projects.delete` and user-approved `confirm=true`).
 8. `validate_project_geometry` — `CONSTRUCTION_*` warnings (e.g. `CONSTRUCTION_STOREYS_WITHOUT_STAIRS`).
 9. Estimate: `install_construction_starter_pack`, services with a part role (`CONSTRUCTION_*` rules), then
    `review_estimate_against_model` → `uncoveredShellSystems` lists shell systems without a position.

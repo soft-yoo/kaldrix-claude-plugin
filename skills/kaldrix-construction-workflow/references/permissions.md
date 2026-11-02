@@ -30,6 +30,14 @@ the app — never more.
   history, "Historia pracy AI"). Each person sees their own agents' actions; people with the Team permission
   (`members.read`) see the whole company.
 
+Saved-data updates to contracts, warranties, crew assignments, time entries and tasks
+require both write and delete scopes for their area, plus `confirm=true` after the
+user reviews the change. Invoice due-date and stage updates require `invoices.write`
+and `invoices.delete`; site-location updates require `project-settings.write` and
+`project-settings.delete`. A write-only connection must be authorized again for these
+scopes within the person's current permissions. First assignments through these
+flagged tools require the same confirmation as replacements.
+
 `list_tool_profiles` shows which tools this connection can use now. Inside a connection, guides and catalogs
 (including `kaldrix://mcp/service-catalog`) list only the tools this connection can use; a tool they mention but
 you cannot use appears under "Not available in this connection" (Markdown) or `unavailableInThisConnection`

@@ -16,6 +16,11 @@ texture removal require `graphics.write` and `graphics.delete`. These requiremen
 first-time saves and copy variants of the flagged tools. Batch labels require `projects.delete` and
 confirmation; wall/slab updates require confirmation; add-only batches remain write-only.
 
+`create_building_floor`, `fit_roof_to_wall_plates` and `update_opening` require
+`projects.write`, `projects.delete` and user confirmation. Adding an upper floor can
+move and rebuild an existing roof. Saving the site point with `set_project_location`
+requires `project-settings.write`, `project-settings.delete` and confirmation.
+
 Geometry validation returns `availableActions[].nextTools` with an individually exposed
 `execute_*_action` tool for each action kind. Use that exact tool, action ID and model version;
 all these repairs require `projects.write`, `projects.delete` and user confirmation.

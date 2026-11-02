@@ -17,7 +17,8 @@ The steps below use lower-level tools from the same `workspace` catalog. For a s
    each call creates a separate occurrence.
 5. Use `create_estimation_item` only for a row outside the price list. Supply its quantity before waste, unit price,
    and VAT; the saved quantity is `quantity × (1 + wastePercent / 100)`.
-6. Correct a draft row with `update_estimation_item`. `quantity` is always the amount before waste, like on create.
+6. Review the replacement with the user, then correct a draft row with `update_estimation_item`, `confirm=true`,
+   `estimates.write` and `estimates.delete`. `quantity` is always the amount before waste, like on create.
    A service row never changes its name or unit. A manual service row that is the only scope of its occurrence may
    change price, VAT, quantity (its composition is rescaled), and note; any other service row accepts only a note.
    To change the quantity or the sources of a service that has several scopes, resend the whole occurrence with
