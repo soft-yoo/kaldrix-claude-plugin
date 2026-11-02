@@ -4,7 +4,7 @@ Circuit plan coordinates use the shared project coordinate system. Plan `planX/p
 
 Choose CHAIN, STAR or TREE for an automatic route. Set `routeOverrides:[{targetPointId,waypoints:[{x,y}]}]` to guide an automatic branch through chosen rooms. If automaticRoute3D is true, use waypoints3D instead of waypoints. Never send both. Once a manual network exists, edit its edges and junctions; changing topology does not replace that network.
 
-To add a real junction, read the physical layout and pass nodeEdit.ADD with segmentIndex and a position on that segment (or edgeId for an existing network). Read the resulting node/edge IDs. For a preview use `preview_installation_circuit_node`; save exactly the same nodeEdit with `update_installation_circuit` at the reviewed version.
+To add a real junction, read the physical layout and send nodeEdit.ADD with segmentIndex and a position on that segment (or edgeId for an existing network). Read the resulting node/edge IDs. For a preview use `preview_installation_circuit_node`; save exactly the same nodeEdit with `update_installation_circuit` at the reviewed version.
 
 ```json
 {"projectId":"<project>","floorId":"<floor>","circuitId":"<circuit>","expectedModelVersion":7,"nodeEdit":{"action":"EDIT_EDGE","edgeId":"<edge>","controls":[{"x":2.0,"y":1.2,"z":1.0},{"x":2.0,"y":1.2,"z":2.0}]}}

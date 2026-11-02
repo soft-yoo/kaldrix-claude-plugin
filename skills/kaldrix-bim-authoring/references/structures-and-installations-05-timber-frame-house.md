@@ -20,6 +20,6 @@
 7. Roof: inspect `list_structures` first: an attic may already have its default roof. Otherwise `create_roof` →
    `preview_framing_system` `kind: "ROOF_RAFTERS"`. Read the suggested section and spacing: the backend chooses them
    from the span and covering; do not assume one fixed rafter section. Counter battens and battens are on by default.
-   Pass the reviewed preview version to `create_framing_system`, then use `get_framing_drawing` to describe it.
+   Send the reviewed preview version to `create_framing_system`, then use `get_framing_drawing` to describe it.
 8. Estimate: playbook "Kosztorys bez podwójnego liczenia" below (wall frame `WALL_FRAME_ROLE_*`, layers
    `WALL_LAYER_AREA`, roof `FRAMING_ROLE_*`).

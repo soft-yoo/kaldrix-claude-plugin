@@ -17,6 +17,6 @@ An empty `sources` list means that service has no positive accepted quantity for
 
 A whole installation riser uses `elementType: INSTALLATION_RISER` and `floorId: null`. Its CO length
 already includes both supply and return and the route allowance; WLZ has its own cable allowance.
-Pass the returned scopes unchanged to `add_catalog_service_to_estimate`. Choose whole-riser scopes or
+Send the returned scopes unchanged to `add_catalog_service_to_estimate`. Choose whole-riser scopes or
 its floor-segment scopes; using both duplicates the same physical quantities. The model review detects
 that overlap between different positions. Within one position, `preview_estimate_position_scope` marks overlapping physical quantities as not ready; assignment and direct position writes reject them with `ESTIMATE_SCOPE_OVERLAP`. Choose the whole element or its parts. This read-only lookup does not create an estimate or add any positions.

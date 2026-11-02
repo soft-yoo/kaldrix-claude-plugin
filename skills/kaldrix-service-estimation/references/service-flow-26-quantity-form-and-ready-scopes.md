@@ -9,7 +9,7 @@ supported by the quantity planner outside that locked workflow.
 
 Call `plan_estimate_position_quantity` with the selected source references and the current model
 version. Supply an explicit `measurementMultiplier` when the form requires thickness or height.
-For manual quantity, pass an empty source list and `manualQuantity`; this works in every billing unit.
+For manual quantity, send an empty source list and `manualQuantity`; this works in every billing unit.
 `quantityOverride` is an explicit corrected total: the backend distributes it across the selected
 sources. An incomplete area-to-volume conversion returns rawSourceQuantity and no scopes.
 Copy the returned ready scopes unchanged to `add_catalog_service_to_estimate` or

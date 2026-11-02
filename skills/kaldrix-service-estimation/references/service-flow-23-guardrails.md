@@ -1,6 +1,6 @@
 ## Guardrails
 
-- Never pass or invent a tenant ID. Tenant identity comes from the authenticated MCP context.
+- Never send or invent a tenant ID. Tenant identity comes from the authenticated MCP context.
 - Never invent resource, recipe, project, or estimate UUIDs; obtain them from list/create tools.
 - Never claim that prices synchronize with suppliers.
 - Never invent BIM source values. BIM-linked writes are accepted only when the source and metric match the current model.

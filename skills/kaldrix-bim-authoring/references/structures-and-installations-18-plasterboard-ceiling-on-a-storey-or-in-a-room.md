@@ -12,12 +12,12 @@
    with a whole-storey system, and explicit custom outlines remain independent scopes. This does not imply
    automatic subtraction of overlapping systems from quantities; inspect each system's scope and takeoff.
    On MCP updates and previews with `sourceSystemId`, only supplied non-null `params` fields replace stored values.
-   Omit the `params` object to keep the stored set. To reset omitted values to kind defaults, pass an intended
+   Omit the `params` object to keep the stored set. To reset omitted values to kind defaults, send an intended
    replacement object with `replaceParams=true`. On `update_framing_system`, `clearElevation=true` resets only
    the stored height.
    For an existing GK ceiling, `kindChangeTargets` lists supported changes between `CEILING_GK_SINGLE` and
    `CEILING_GK_DOUBLE`; it does not guarantee permission or valid parameters. Preview with `sourceSystemId`, the
-   target `kind` and the unchanged scope, then pass that kind to `update_framing_system` with the reviewed model
+   target `kind` and the unchanged scope, then send that kind to `update_framing_system` with the reviewed model
    version. UUID, scope and explicit parameters remain unchanged; omitted stored values use the target defaults.
    A stored zero mounting profile spacing must be corrected before changing to DOUBLE
    (`BIM_FRAMING_KIND_CHANGE_SECONDARY_SPACING_REQUIRED`). Active estimate scopes block kind changes

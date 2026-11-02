@@ -15,5 +15,5 @@ The site point is separate from BIM geometry. Plan outlines use metres; geograph
    not saved as an ownership or cadastral assignment.
 
 `providerUnavailable=true` means the registry did not respond. An empty response in that case never proves that no
-parcel exists. Lookups use the same per-user limits and cache as the app. Do not pass geographic parcel rings to
+parcel exists. Lookups use the same per-user limits and cache as the app. Do not send geographic parcel rings to
 `set_building_outline` or `set_floor_outline`: those expect plan metres.

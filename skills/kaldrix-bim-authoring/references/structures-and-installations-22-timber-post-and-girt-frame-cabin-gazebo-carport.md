@@ -1,6 +1,6 @@
 ## Timber post-and-girt frame (cabin, gazebo, carport)
 
-`TIMBER_POST_FRAME` is a SPACE-scope framing system: pass a room `spaceId` or an `outline` whose edges are the
+`TIMBER_POST_FRAME` is a SPACE-scope framing system: send a room `spaceId` or an `outline` whose edges are the
 **post axes** (edge `i` runs from outline vertex `i` to vertex `i + 1`, the last edge closes the outline; the
 layout `outline` returned by preview / create is the reference for edge indices).
 

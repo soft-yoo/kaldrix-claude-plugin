@@ -64,7 +64,7 @@ structural member end supports retain their separate level and bearing rules.
 ```
 
 Moving `post1` to `position: 2.3` and setting its `support` to a wall (instead of the automatic resolution)
-keeps every other purlin field at the kind default (width/height, braces `BOTH`, `sill: true`) — pass the whole
+keeps every other purlin field at the kind default (width/height, braces `BOTH`, `sill: true`) — send the whole
 purlin and post again, since `plan.purlins` replaces the stored purlin list entirely. `update_framing_member`
 still edits the section, rafter eaves/ridge end extension (`startExtension`/`endExtension`), removal (`removed`)
 and the collar tie height ratio (`collarHeightRatio`) of a single saved generated member; it does not touch the

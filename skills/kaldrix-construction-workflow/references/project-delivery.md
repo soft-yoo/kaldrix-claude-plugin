@@ -41,7 +41,7 @@ Editing an acceptance protocol, punch item or warranty defect requires `realizat
    and delay. A stage from an estimate section takes its progress from the executed quantities of the accepted estimate;
    otherwise set it with `set_schedule_stage_progress` (manual value, or `fromEstimate=true` to go back). Construction log
    entries belong to a stage: `list_construction_log_entries` lists the stages and the one running today
-   (`defaultStageId`) and filters by stage; pass that `stageId` to `add_construction_log_entry`. Record instalment payments with `record_contract_tranche_payment` (confirm=true only after the user confirms the payment)
+   (`defaultStageId`) and filters by stage; send that `stageId` to `add_construction_log_entry`. Record instalment payments with `record_contract_tranche_payment` (confirm=true only after the user confirms the payment)
    and undo a wrong one with `clear_contract_tranche_payment` (confirm=true). A change of scope during the works
    (additional, replacement or omitted works, a later completion date) is an annex to the concluded contract — never an
    edit of the accepted estimate: `list_contract_annexes` (state, amounts, `defaultVatRate`), `get_contract_annex_sources`

@@ -3,7 +3,7 @@
 Repeat building metadata, footprint and floor creation inside the same project for a garage or another house. Keep the intended `buildingId` explicit. Each roof uses the highest floor of its own building. Building-local risers and structural supports do not link independent buildings. Site geometry remains outside their floor collections.
 
 When shared terrain is requested, call `create_site_floor` once for the project, without a building UUID or
-outline. Pass explicit `level` (usually 0), `height` in metres (for example 2), current `expectedModelVersion`
+outline. Send explicit `level` (usually 0), `height` in metres (for example 2), current `expectedModelVersion`
 and `idempotencyKey`. Optional `elevation` is the absolute terrain elevation in metres; when omitted the
 backend uses the ground-floor elevation, or project datum if there is no ground floor. `level` is a logical
 index, not an elevation. The backend rejects a second SITE. An identical retry returns the saved floor UUID
@@ -12,7 +12,7 @@ storeys, roofs and project parts unchanged; it creates no plot outline, paving, 
 connection. Read `get_floor_detail` / `get_project_detail` afterwards; use `update_floor` for its parameters.
 `set_floor_outline` applies to building storeys and cannot define a site boundary.
 
-For `get_project_purchase_report` and `get_timber_schedule`, pass the building UUID from
+For `get_project_purchase_report` and `get_timber_schedule`, send the building UUID from
 `get_project_detail` to report only that building. Omit `buildingId` for the whole project,
 including site geometry. Both responses echo `buildingId` (`null` for the whole project); a UUID
 not belonging to this project is rejected with `BUILDING_NOT_FOUND`. Floor names and levels are

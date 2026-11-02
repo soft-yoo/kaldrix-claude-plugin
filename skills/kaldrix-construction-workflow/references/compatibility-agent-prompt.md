@@ -70,7 +70,7 @@ step (`get_project_workflow`). Read results, never recompute phases, stage state
    track money in the construction budget instead (`get_project_budget`, `add_budget_expense`, `record_budget_payment`).
 
 Signing, completing, recording a paper signature and cancelling a contract require a decision from the responsible
-person: ask first and pass confirm=true only after an explicit yes. Completion can only be undone in the app by a person
+person: ask first and send confirm=true only after an explicit yes. Completion can only be undone in the app by a person
 with `realization.delete`; the MCP connector does not expose that action.
 
 ## Building Flow

@@ -1,7 +1,7 @@
 ## Catalog Flow
 
 1. Call `list_price_lists` to see the company price lists (the default first) and `get_price_list` for one of them
-   (name, stored currency, saved EUR rate, default service-composition markup, catalog version, status). Pass the chosen `priceListId` to
+   (name, stored currency, saved EUR rate, default service-composition markup, catalog version, status). Send the chosen `priceListId` to
    `list_catalog_resources`, `create_catalog_resource`, `list_service_recipes`, `create_service_recipe` and
    `create_project_estimate`; catalog tools without it use the default price list. A new estimate resolves an active
    list matching its project currency; an explicit list must match too. A company without a price list can start

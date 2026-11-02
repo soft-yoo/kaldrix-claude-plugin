@@ -11,7 +11,7 @@ The search compares up to three traversal preferences per eligible topology and 
 bounded heuristic, not a global-optimum proof or a standards-compliance certificate. Follow returned
 `guidance` and `nextTools`: keep the route on `NO_IMPROVEMENT`, and preserve manual networks on `MANUAL_ROUTE`.
 Full commissioning, equipment sizing and electrical/hydraulic/thermal calculations are outside this comparison.
-For cost comparison pass the project estimate UUID. Pricing uses frozen model-linked conduit,
+For cost comparison send the project estimate UUID. Pricing uses frozen model-linked conduit,
 fitting and labor rows, including manual component quantities; missing prices and unknown/manual
 source quantities produce diagnostics rather than a fabricated cost. The estimate is never changed.
 

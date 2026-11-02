@@ -12,5 +12,5 @@ Prefer `create_quick_house` for a new house. For a custom model use the relevant
 8. `add_opening_by_intent` for windows, doors and cut-outs.
 9. `create_roof` on that building's highest floor.
 
-Do not create independent room polygons or duplicate shared walls. Edit an envelope through its outline. Pass the reviewed
+Do not create independent room polygons or duplicate shared walls. Edit an envelope through its outline. Send the reviewed
 `modelVersion` as `expectedModelVersion` to physical writes; re-read after intervening edits.

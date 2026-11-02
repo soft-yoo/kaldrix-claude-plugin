@@ -2,7 +2,7 @@
 
 Use `get_installation_circuit_selection` with the current `expectedModelVersion` before drafting or
 editing a circuit. The backend returns compatible source IDs, media, eligible receiver IDs, and a
-typical receiver subset. For point placement or reconnection, pass either `targetPointId` or
+typical receiver subset. For point placement or reconnection, send either `targetPointId` or
 `targetPointKind` to obtain eligible circuit IDs. The two fields are mutually exclusive; point-kind
 selection does not place a point or validate its future position. Existing same-medium assignments
 are excluded from other circuits. Refresh the project after a model version conflict.
