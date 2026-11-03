@@ -1,6 +1,6 @@
 ## Geometry changes and opt-in installation automation
 
-Use `configure_floor_installation_automation` to enable underfloor replanning and/or compatible POWER/LIGHTING circuit merging for a floor. Explicitly mark existing circuits with `automaticallyManaged=true`. The installations module must be enabled. Manual routes and loop metre targets are excluded; manual edits disable automatic regrouping for that circuit. Water, drainage and radiators are never regrouped.
+Use `configure_floor_installation_automation` to enable underfloor replanning and/or compatible POWER/LIGHTING circuit merging for a floor. Explicitly mark existing circuits with `automaticallyManaged=true`. INSTALLATION_DESIGN must be enabled (it depends on INSTALLATIONS). Manual routes and loop metre targets are excluded; manual edits disable automatic regrouping for that circuit. Water, drainage and radiators are never regrouped.
 
 The user controls `maxLoopArea` (30 m² by default, a planning preference rather than a design standard), `maxElectricalPoints` and each loop's pipe length limit. Area and length both constrain loop division. Underfloor loops are replanned only where they already existed. Compatible loops can merge after rooms merge; different manifolds, pipe specs or settings remain separate. Dedicated electrical appliances retain individual supplies. If manifold outlets, passages or pipe limits prevent a valid layout, the entire geometry mutation fails atomically. A priced loop cannot be silently removed from an estimate.
 

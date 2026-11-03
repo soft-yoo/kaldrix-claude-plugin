@@ -9,6 +9,8 @@ Use the connected MCP server for current schemas, identities, permissions,
 available operations, geometry, routing and quantities. This skill explains the
 workflow; it never grants access or replaces backend rules.
 
+Read [plan and module access](references/plan-and-module-access.md) before choosing specialist tools.
+
 Review changes with the user before setting `confirm=true`. Overwriting outlines, room labels,
 build-ups, framing members, installation points or structural positions requires both `projects.write`
 and `projects.delete`. Underlay attachment/replacement uses the same scopes. Saved viewpoints and

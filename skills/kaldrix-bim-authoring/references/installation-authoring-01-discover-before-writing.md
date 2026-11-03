@@ -1,5 +1,8 @@
 ## Discover before writing
 
+Circuit, riser and planning tools require INSTALLATION_DESIGN; simple points use INSTALLATIONS.
+Check [plan and module access](plan-and-module-access.md) before choosing this workflow.
+
 1. Read `get_project_detail` and call `plan_floor_installations(projectId, floorId, expectedModelVersion)` for one snapshot of all six trade guides. Set `systems` to plan only selected trades. An unconfigured trade is optional: do not add gas or another installation unless it is in the requested scope. Follow SOURCE → POINTS → CONNECT and replan after saving. Read `get_floor_detail`, `list_installation_points`, `list_installation_circuits` and `list_installation_risers`. Reuse existing equipment and endpoints.
 2. Read `kaldrix://projects/installation-point-kinds` for every supported component, its trade, mount and height. Use `add_installation_points` for individual equipment or endpoints; presets are only typical room sets and do not include every kind.
 3. Call `get_installation_conduit_catalog`. Its media, compatible specs, source/target restrictions, source-dependent defaults, routing bounds and 3D capabilities are authoritative. Do not guess compatibility from names. `targetKinds=null` means general trade validation, not permission to mix trades.
