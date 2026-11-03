@@ -1,5 +1,9 @@
 ## Roof framing
 
+Detailed framing previews and authoring, including ROOF_RAFTERS, require STRUCTURES.
+Basic roof geometry and takeoff remain available with project access. Saved framing reads
+retain existing model data; see [plan and module access](plan-and-module-access.md).
+
 1. Read the project and retain its `modelVersion`. Set the building outline and create its storeys first.
    Call `create_roof` on the highest building storey with the reviewed version and an idempotency key.
    Choose `FLAT`, `SHED`, `GABLE` or `HIP`; the effective storey outline supplies the footprint.

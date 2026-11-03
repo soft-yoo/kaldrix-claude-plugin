@@ -42,3 +42,8 @@ flagged tools require the same confirmation as replacements.
 (including `kaldrix://mcp/service-catalog`) list only the tools this connection can use; a tool they mention but
 you cannot use appears under "Not available in this connection" (Markdown) or `unavailableInThisConnection`
 (JSON) with the reason and the missing scope, company module or company type.
+
+Read `list_tool_profiles.unavailableToolGroups` for missing tools and the precise next step.
+`MODULE_NOT_IN_PLAN` requires plan review; `MODULE_DISABLED` means an included feature or
+dependency is switched off. The owner manages modules; person permissions and OAuth scopes
+remain separate. Diagnostics expose metadata only and do not enable hidden tools.
