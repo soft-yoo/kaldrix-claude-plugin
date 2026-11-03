@@ -39,6 +39,7 @@ when the task reaches that stage or returned data exposes a dependency.
 | Understand missing tools or a denied operation | [Missing tools](references/missing-tools.md) and, when relevant, [permissions](references/permissions.md) |
 | Resolve a retry, conflict or uncertainty about a write | [Execution safety](references/execution-safety.md) |
 | Plan discovery or avoid oversized responses | [Startup and discovery](references/startup-and-discovery.md) and [response size](references/response-size.md) |
+| Find where an input comes from or which tool comes next | [Tool order and inputs](references/tool-order-and-inputs.md); model and estimate details in the matching skill page of the same name |
 
 The references preserve the existing workflow section names. A mention of the
 delivery section or private investor section means `project-delivery.md`; do not

@@ -17,6 +17,9 @@ another fragment only when reaching that step or when returned data requires it.
 The index assembles into the complete server guide; reading all fragments is
 unnecessary for a single position or price-list change.
 
+For where an input comes from or which tool comes next, read
+[tool order and inputs](references/tool-order-and-inputs.md).
+
 Backend-generated categories, markup rules, quantity rules and live tool schemas
 remain server contracts. Fetch the relevant compact resource when needed rather
 than relying on a copied enum or writing another calculation. Keep returned

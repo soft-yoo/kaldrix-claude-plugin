@@ -41,6 +41,7 @@ small topic fragments: read the matching fragment, not the complete collection.
 | Work on structural frames, roofs, junctions, circuits, optimization or quantities | [Structures and installations index](references/structures-and-installations.md) |
 | Name spaces or apply room templates | [Naming](references/naming-guide.md) and [room templates](references/room-templates.md) |
 | Add presentation graphics to a scene | [Scene graphics](references/scene-graphics.md) |
+| Find where an input comes from or which tool comes next | [Tool order and inputs](references/tool-order-and-inputs.md) |
 
 Keep the canonical sequence project → building → outline → floors → partitions
 → room labels. Use IDs, `expectedModelVersion`, units and stable retry keys from
