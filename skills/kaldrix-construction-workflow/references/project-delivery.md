@@ -99,11 +99,12 @@ is the same as for a new construction.
 
 ### Private investor accounts
 
-A private investor (account type INVESTOR, a PERSONAL workspace) builds or renovates their own house: projects, the
-model, estimates, the schedule, the construction log, acceptance protocols and the construction budget. Offers and
-contracts for clients (OFFERS), customers, tasks and invoices or KSeF belong to company workspaces only, so those tools
-are hidden or return `MODULE_DISABLED` / `WORKSPACE_ACCESS_DENIED`. The investor tracks money in the construction budget
-(BUDGET module, turned on by the account owner; available to every account): `get_project_budget` (limit, stages,
+A private investor (account type INVESTOR, a PERSONAL workspace) can build or renovate their own house.
+PERSONAL and ORGANIZATION client accounts use the same module and plan rules: the account kind does not exclude
+client offers, contracts, customers, tasks or invoice tools. Use the returned entitlement, enabled modules and
+person's consented scopes; do not infer access from the account label. KSeF connection management stays in the app.
+For the construction budget, BUDGET must be included and enabled by the account owner. New accounts get it in
+Pro or Advanced; legacy entitlements may differ. The budget tools are `get_project_budget` (limit, stages,
 costs, paid and to pay, notices), `add_budget_expense` (a cost in a stage or in shared costs, optionally with the first
 payment; omit the amount while the final price is unknown) and `record_budget_payment` (another payment or a refund).
 Amounts are gross minor units (grosze). Generate a new UUID `requestId` for each intended write and reuse it only for a

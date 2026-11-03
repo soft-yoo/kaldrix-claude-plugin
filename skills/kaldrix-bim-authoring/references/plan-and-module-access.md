@@ -33,5 +33,6 @@ When a tool is missing, read list_tool_profiles.unavailableToolGroups. Each grou
 hidden tools, required scopes or module, access reason and next step. MODULE_NOT_IN_PLAN
 needs plan review; MODULE_DISABLED needs the owner to enable an included feature or dependency.
 MISSING_PERMISSION needs person permissions and approved OAuth scopes. COMPANY_TYPE needs
-the right company type. If a name is in activeToolNames but absent from the client, refresh the
+the right company type. MODULE_UNAVAILABLE needs a fresh entitlement and module-state check;
+do not guess that a plan upgrade or feature switch is the remedy. If a name is in activeToolNames but absent from the client, refresh the
 client catalog. Diagnostics do not grant access: never call a hidden tool to bypass a refusal.

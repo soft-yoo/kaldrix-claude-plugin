@@ -45,7 +45,7 @@ The single `workspace` catalog includes every domain. For estimates, read `kaldr
 - Construction process after the offer (contract, start of works, stages, acceptance, handover): follow the phase and `nextStepId` of `get_project_workflow` and the section "Construction process" below.
 - Construction budget of a private investor: `get_project_budget`, `add_budget_expense`, `record_budget_payment` (BUDGET module, `budget.*` scopes).
 - Supplier: read the category, unit, VAT-rate and import-mode resources listed in the service catalog before catalog mutations.
-- Company map: `list_map_features` reads company places, bases and building sites (and marketplace layers when the company uses them) in a map rectangle, within a radius or by text. It is read-only; positions and visible objects follow the same role and privacy rules as the app map.
+- Company map: `list_map_features` reads company places, bases and building sites (and marketplace layers when the company uses them) in a map rectangle, within a radius or by text. It is read-only; positions and visible objects follow the same person permissions, site access and privacy rules as the app map.
 
 ## Construction process
 
@@ -66,8 +66,10 @@ step (`get_project_workflow`). Read results, never recompute phases, stage state
    (`realization.write`, confirm=true) closes the construction.
 5. Renovation without a drawing: `workType=RENOVATION` skips the MODEL step; price it with manual quantities (formulas
    such as `2*3,5*2,7` allowed). The process after the offer is the same.
-6. Private investor accounts (PERSONAL workspace) have no client offers, contracts, customers, tasks or invoices; they
-   track money in the construction budget instead (`get_project_budget`, `add_budget_expense`, `record_budget_payment`).
+6. PERSONAL and ORGANIZATION client accounts share the same plan rules; neither the account label nor an access
+   template name grants or excludes client offers, contracts, customers, tasks or invoices. Inspect live module
+   entitlements and consented scopes. The construction budget (`get_project_budget`, `add_budget_expense`,
+   `record_budget_payment`) needs BUDGET, included in Pro/Advanced for new accounts; legacy grants may differ.
 
 Signing, completing, recording a paper signature and cancelling a contract require a decision from the responsible
 person: ask first and send confirm=true only after an explicit yes. Completion can only be undone in the app by a person

@@ -6,6 +6,8 @@
   to review **Settings → Plan and payments**. A feature switch does not grant an excluded module.
 - `MODULE_DISABLED` means the module is included but it or a dependency was switched off.
   Ask the owner to check **Settings → Features**, then refresh `tools/list`.
+- `MODULE_UNAVAILABLE` does not establish whether a module is outside the plan or switched off.
+  Refresh the catalog and inspect the current entitlement and feature state before recommending either change.
 - `MISSING_PERMISSION` names the exact missing OAuth scopes, including any additional write/delete
   requirement. A team manager checks the person's app permissions; reconnect and approve scopes
   only after they are granted in the app. `COMPANY_TYPE` needs the correct company type.

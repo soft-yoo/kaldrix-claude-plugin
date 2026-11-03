@@ -10,7 +10,9 @@ are excluded from other circuits. Refresh the project after a model version conf
 Use `get_ventilation_route_report` to read room supply/extract airflow, diffuser counts, and actual
 flexible duct multiplicities. Counts come from connected routed segments and retain explicit manual
 network runs. An unconnected diffuser contributes airflow, but no invented duct. Connected rigid Spiro routes also produce an empty ducts list here; use list_installation_circuits and get_installation_circuit_layout for their lengths and warnings. These tools are
-read-only and require the INSTALLATIONS module and projects.read scope.
+read-only and require INSTALLATION_DESIGN (with its INSTALLATIONS dependency) and projects.read.
+If that design module is unavailable, inspect saved elements with the permitted raw model reads;
+being able to read saved data does not grant a new planning or design preview.
 
 ### Structural member authoring catalog
 

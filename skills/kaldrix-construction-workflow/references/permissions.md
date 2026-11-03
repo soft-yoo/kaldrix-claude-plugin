@@ -3,8 +3,8 @@
 Every Kaldrix MCP connection acts on behalf of one person in one company chosen on the consent screen. If several
 eligible companies are listed, the person selects one before granting access. Switching companies in the app does
 not change an existing connector's company; reconnect to choose another company. There is no separate "AI agent" permission:
-anyone in a company with the AI module may connect an agent, and the agent can do exactly what that person can do in
-the app — never more.
+an active person in a company with the AI module and AI connections enabled may connect an agent. The agent gets only supported connector operations
+within that person's access, narrowed by consent and enabled modules; some app operations are never exposed to MCP.
 
 - **Where permissions come from.** Each person in a company gets one access template (for example Administrator,
   Site manager, Worker, Guest, or the company's own templates). Templates belong to the company: they start as the four
@@ -15,6 +15,9 @@ the app — never more.
   scopes may remain, so this is not a promise of an empty tool list. Those scopes do not grant access to site data.
   The company owner always has every permission. For other templates, site access (all sites or selected sites)
   further limits project data.
+- **Template names are not authorization.** Administrator, Site manager, Worker and Guest are editable template
+  labels, not fixed roles. Read actual person scopes, project visibility and connector consent. Even an owner's
+  connector cannot bypass missing consent, an excluded module or an unavailable tool.
 - **What this connection gets.** Its scopes are the person's current permissions, narrowed to what the person approved
   on the consent screen. They are re-checked on every call: a permission taken away stops working immediately; a newly
   given permission needs the connector to be reconnected and the new scope approved.
@@ -37,6 +40,8 @@ and `invoices.delete`; site-location updates require `project-settings.write` an
 `project-settings.delete`. A write-only connection must be authorized again for these
 scopes within the person's current permissions. First assignments through these
 flagged tools require the same confirmation as replacements.
+`confirm=true` is a Boolean submitted by the agent, not proof of a separate human click. Obtain the user's
+actual decision before setting it; never infer approval from the flag, an error or a retry.
 
 `list_tool_profiles` shows which tools this connection can use now. Inside a connection, guides and catalogs
 (including `kaldrix://mcp/service-catalog`) list only the tools this connection can use; a tool they mention but
@@ -47,3 +52,5 @@ Read `list_tool_profiles.unavailableToolGroups` for missing tools and the precis
 `MODULE_NOT_IN_PLAN` requires plan review; `MODULE_DISABLED` means an included feature or
 dependency is switched off. The owner manages modules; person permissions and OAuth scopes
 remain separate. Diagnostics expose metadata only and do not enable hidden tools.
+`MODULE_UNAVAILABLE` means the exact module state could not be classified: refresh the catalog and inspect
+the current entitlement and feature state before recommending a switch or plan change.

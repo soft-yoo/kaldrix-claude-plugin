@@ -18,12 +18,16 @@ parametric framing systems (suspended ceilings, timber joists, post-and-girt fra
 points to walls, routes circuits and generates every framing member, fixing and the bill of materials. You send intent;
 never compute members, routes or quantities yourself.
 
-Company modules: point, circuit, riser, route and installation group tools need **INSTALLATIONS** ("Instalacje");
-structural member tools, frame layouts (`get_wall_frame`, `get_slab_frame`), suspended ceilings and timber joists need
-**STRUCTURES** ("Konstrukcje"). Roof framing (`ROOF_RAFTERS`, roof members) belongs to the roof and needs no module;
-build-ups (`list_build_ups`, `create_build_up_from_template`, `assign_build_up`…) are core and need none. A disabled
-module returns `MODULE_DISABLED` — do not retry; only the company owner can enable it. Estimate tools need
-**ESTIMATES**.
+Company modules: simple installation points, plain installation lines/groups and their dedicated reads need **INSTALLATIONS**;
+circuits, risers, their routed networks, planning guides, HVAC and automation need **INSTALLATION_DESIGN**, which depends
+on INSTALLATIONS. Structural authoring and previews, including roof framing (`ROOF_RAFTERS`, roof members),
+frame layouts (`get_wall_frame`, `get_slab_frame`), suspended ceilings and timber joists need **STRUCTURES**.
+Basic roof geometry, roof takeoff and build-ups (`list_build_ups`, `create_build_up_from_template`, `assign_build_up`…)
+remain in **PROJECTS**. Saved model inspection through `list_elements` / `get_element` and saved framing reads
+does not grant specialist authoring access; project visibility and read scopes still apply. Estimate tools need
+**ESTIMATES**. See [plan and module access](plan-and-module-access.md) for current and legacy entitlements.
+On a module refusal, inspect `list_tool_profiles.unavailableToolGroups`: the owner can enable an included module,
+but an excluded module needs plan review. Do not retry the refusal or bypass it with a generic batch.
 
 Project parts are chosen per project (`get_project_detail` → `activeParts`, `set_project_parts`, catalog:
 `get_project_part_catalog`). `create_project` without `parts` starts with the defaults of the building type, as the
