@@ -1,6 +1,10 @@
 ## When a tool is missing
 
-- Call `list_tool_profiles`. It reports `activeToolNames` (the same names as `tools/list`),
+- If the whole MCP connection returns HTTP 403 with `code=MODULE_DISABLED` and `module=AI`,
+  the AI access gate runs before `tools/list` and `list_tool_profiles`; those diagnostics cannot run.
+  Ask the account owner to check **Settings → Plan and payments**. If AI is included in the
+  account's current access, enable it in **Settings → Features**. Do not retry automatically.
+- When the MCP connection is available, call `list_tool_profiles`. It reports `activeToolNames` (the same names as `tools/list`),
   `hiddenToolCount`, and `unavailableToolGroups` with the hidden names, exact requirement and next step.
 - `MODULE_NOT_IN_PLAN` means the account's current entitlement excludes the module. Ask the owner
   to review **Settings → Plan and payments**. A feature switch does not grant an excluded module.
