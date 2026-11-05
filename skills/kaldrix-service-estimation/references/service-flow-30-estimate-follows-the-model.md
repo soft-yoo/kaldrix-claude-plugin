@@ -13,10 +13,11 @@ in the background, shortly after the write and not within the same call:
   (`SOURCE_REMOVED`, `QUANTITY_ZERO`), new matching model elements (`newElements`) and quantities that do not come
   from the model or a measurement. They wait for the user's decision.
 - **Restoring a project version** corrects drafts the same way, within the `restore_project_version` call itself:
-  every editable draft, restored with the version or not, gets the model-counted quantities of the restored model,
-  recorded as an entry with the cause "After a version was restored" and the person who restored as the author.
-  Manual quantities, prices, markups and discounts stay; locked estimates only get the attention summary; removed and
-  new elements still wait for the user.
+  every editable draft, restored with the version or not (also one whose restore failed), gets the model-counted
+  quantities of the restored model, recorded as an entry with the cause "After a version was restored" and the person
+  who restored as the author. Manual quantities, prices, markups and discounts stay; locked estimates only get the
+  attention summary; removed and new elements still wait for the user. In the rare case the correction of a draft
+  fails, the restore still succeeds and the draft shows quantities waiting in `review_estimate_against_model`.
 
 After editing the model:
 

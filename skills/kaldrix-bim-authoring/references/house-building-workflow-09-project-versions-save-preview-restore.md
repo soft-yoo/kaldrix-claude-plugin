@@ -40,5 +40,7 @@ The state before the restore is saved as a new version, so a wrong restore can i
 Estimates approved, waiting for approval or offered never change. After every restore, every editable draft —
 restored with the version or not — gets the model-counted quantities of the restored model within the same call,
 recorded in `get_estimate_model_changes` as "After a version was restored"; do not apply them again. Manual
-quantities, prices and markups stay. Review what is left (removed or new elements, locked estimates) with
-`review_estimate_against_model` and apply changes only after the user approves.
+quantities, prices and markups stay. An estimate with `restored=false` keeps its current items and prices (only the
+model-counted quantities follow) — compare it with the project together with the user. Review what is left (removed
+or new elements, locked estimates, and any draft whose quantities still wait) with `review_estimate_against_model`
+and apply changes only after the user approves.
