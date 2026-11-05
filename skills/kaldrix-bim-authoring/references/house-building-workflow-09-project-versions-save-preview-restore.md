@@ -27,7 +27,8 @@ in the app. `list_project_versions` shows the versions and the plan's counters a
    `expectedEstimateStamps` copied unchanged from the preview. It needs `history.restore` and `projects.write`;
    restoring estimates also needs `estimates.write`. The consent screen lists `history.restore` with removals,
    unchecked by default. Called without `confirm=true` the tool only returns the current preview.
-4. Read back `get_project_detail` (the restore is a new model version, not a rewind) and the estimates.
+4. Read back `get_project_detail` (the restore is a new model version, not a rewind) and the estimates
+   (`get_estimate_model_changes` shows the quantities corrected after the restore).
 
 Refusals: `RESTORE_POINT_PROJECT_CHANGED` / `RESTORE_POINT_ESTIMATE_CHANGED` — the project or an estimate changed
 since the preview: preview again and ask again if the effect differs. `RESTORE_POINT_NOT_RESTORABLE` — explain the
@@ -36,6 +37,8 @@ response or `RESTORE_POINT_INCOMPLETE`, retry with the same `operationId` and th
 restored twice and the unfinished part completes.
 
 The state before the restore is saved as a new version, so a wrong restore can itself be undone the same way.
-Estimates approved, waiting for approval or offered never change. A draft not restored with the version keeps its
-quantities: the backend does not auto-correct estimates after a restore, so review it with
+Estimates approved, waiting for approval or offered never change. After every restore, every editable draft —
+restored with the version or not — gets the model-counted quantities of the restored model within the same call,
+recorded in `get_estimate_model_changes` as "After a version was restored"; do not apply them again. Manual
+quantities, prices and markups stay. Review what is left (removed or new elements, locked estimates) with
 `review_estimate_against_model` and apply changes only after the user approves.

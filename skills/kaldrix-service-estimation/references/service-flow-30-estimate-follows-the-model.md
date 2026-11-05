@@ -12,16 +12,19 @@ in the background, shortly after the write and not within the same call:
 - **Never automatic, in any estimate**: positions whose element left the model or whose quantity dropped to zero
   (`SOURCE_REMOVED`, `QUANTITY_ZERO`), new matching model elements (`newElements`) and quantities that do not come
   from the model or a measurement. They wait for the user's decision.
-- **Restoring a project version** never corrects estimates: drafts restored with the version come back as saved;
-  other estimates keep their quantities until the user accepts the review.
+- **Restoring a project version** corrects drafts the same way, within the `restore_project_version` call itself:
+  every editable draft, restored with the version or not, gets the model-counted quantities of the restored model,
+  recorded as an entry with the cause "After a version was restored" and the person who restored as the author.
+  Manual quantities, prices, markups and discounts stay; locked estimates only get the attention summary; removed and
+  new elements still wait for the user.
 
 After editing the model:
 
 1. Expect drafts to update themselves. `review_estimate_against_model` can show zero quantity changes for a draft:
    that is the normal result, not a failure. Right after the write it can still show `QUANTITY_CHANGED` rows the
    background has not reached yet; read it again before deciding.
-2. `get_estimate_model_changes` → tell the user what changed: positions with quantity before and after, the cause and
-   who changed the model. Net values before and after are null without `price-list.read` consent or for a person
+2. `get_estimate_model_changes` → tell the user what changed: positions with quantity before and after, the cause
+   ("Model change" or "After a version was restored") and who changed or restored the model. Net values before and after are null without `price-list.read` consent or for a person
    outside the company team.
 3. Handle what is left with the user, using `itemId` values from the latest review:
    - keep a position whose element is gone, with its current quantity as a manual quantity:
