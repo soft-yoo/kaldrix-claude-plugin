@@ -11,10 +11,11 @@ agent. Do not rely on an automatic version for your own risky plan: it exists on
 
 **Save before a large or risky change.** Before many removals, rebuilding a floor or outline, replacing a roof or a
 large `apply_geometry_batch`, you may call `save_project_version` with a short name the person will recognise, e.g.
-"Before the roof" (1-80 characters). It needs `history.write` and `projects.write`. Tell the user you saved it. With
+"Before the roof" (1-80 characters). It needs `history.write` and `projects.read`. Tell the user you saved it. With
 no change since the newest version, that version gets the name instead of a new copy. At the plan's limit of manual
 versions the call fails with `RESTORE_POINT_MANUAL_LIMIT_REACHED`: tell the user; deleting a manual version is done
-in the app. `list_project_versions` shows the versions and the plan's counters and limits.
+in the app. `list_project_versions` shows the versions and the plan's counters and limits; it and
+`preview_project_version` need `history.read` and `projects.read`.
 
 **Go back after a mistake.**
 
