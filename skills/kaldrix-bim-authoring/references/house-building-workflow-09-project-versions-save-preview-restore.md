@@ -34,7 +34,8 @@ Refusals: `RESTORE_POINT_PROJECT_CHANGED` / `RESTORE_POINT_ESTIMATE_CHANGED` —
 since the preview: preview again and ask again if the effect differs. `RESTORE_POINT_NOT_RESTORABLE` — explain the
 blockers from the preview. `RESTORE_POINT_NOT_FOUND` — the version belongs to another project. After an uncertain
 response or `RESTORE_POINT_INCOMPLETE`, retry with the same `operationId` and the same input: the model is never
-restored twice and the unfinished part completes.
+restored twice and the unfinished part completes. If the model changed in between, estimates not restored yet stay
+current (`restored=false` with the reason) and already follow the newer model.
 
 The state before the restore is saved as a new version, so a wrong restore can itself be undone the same way.
 Estimates approved, waiting for approval or offered never change. After every restore, every editable draft —
