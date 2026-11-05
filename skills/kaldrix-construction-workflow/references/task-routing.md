@@ -13,6 +13,7 @@ conflicting guidance; do not fetch every full guide before an operation.
 | Add devices, endpoints and installation routes | `plan_floor_installations` at the reviewed version, with only the requested trades | `kaldrix://projects/installation-authoring` |
 | Edit roof framing or determine timber quantities | `get_framing_members` / `get_framing_bill_of_materials` for the system; `get_timber_schedule` for all project timber | `kaldrix://projects/structures-and-installations` |
 | Price an existing model or review a saved estimate | `list_project_estimates`; price unpriced work with `price_estimate_from_model`, review existing rows with `review_estimate_against_model` | `kaldrix://estimation/service-flow` |
+| Go back after a mistake, or save the state before a large change | `list_project_versions` → `preview_project_version`; `restore_project_version` only after the user approves the preview; `save_project_version` before a risky change | `kaldrix://projects/house-building-workflow` |
 | Store a requested deliverable or attach an existing file | Read the document policy and upload constraints, then choose the supported upload flow | `kaldrix://documents/agent-documentation-policy` |
 | Run the works after the offer: contract, start, stages, log, acceptance, handover | `get_project_workflow` (phase and next step), then `list_project_contracts` / `get_project_realization` | section "From the accepted offer to the keys" below |
 | Track an investor's own construction money | `get_project_budget` | section "Private investor accounts" below |

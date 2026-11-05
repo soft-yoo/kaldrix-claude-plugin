@@ -29,6 +29,9 @@ within that person's access, narrowed by consent and enabled modules; some app o
   that does the same, and do not ask the user for passwords or tokens. Tell the user in plain words which area or site
   is missing and what to do: someone who manages the team can change their template in Team → Permissions (or give
   access to the site); if they already have the permission in the app, reconnect the connector and approve that scope.
+- **Project versions.** Listing and previewing need `history.read`, saving a version `history.write`, restoring
+  `history.restore` (with `projects.write`; restoring estimates also `estimates.write`). The consent screen lists
+  `history.restore` with removals, unchecked by default.
 - **Activity log.** Every tool call of this connection is recorded in the AI activity history (AI → AI activity
   history, "Historia pracy AI"). Each person sees their own agents' actions; people with the Team permission
   (`members.read`) see the whole company.

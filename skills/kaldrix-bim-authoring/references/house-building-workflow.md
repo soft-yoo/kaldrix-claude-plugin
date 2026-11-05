@@ -13,3 +13,4 @@ Use live tool schemas and backend decisions for the actual operation.
 - [Choose the next tool by intent](house-building-workflow-06-choose-the-next-tool-by-intent.md)
 - [Readback, versions and uncertain writes](house-building-workflow-07-readback-versions-and-uncertain-writes.md)
 - [Site location and cadastral parcel](house-building-workflow-08-site-location-and-cadastral-parcel.md)
+- [Project versions: save, preview and restore](house-building-workflow-09-project-versions-save-preview-restore.md)

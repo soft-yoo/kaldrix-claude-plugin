@@ -15,8 +15,8 @@
    without a service (lower-level tool: `create_estimation_item`).
 8. `get_project_estimate` / `list_estimate_sheet_rows` → report totals from the server; never sum rows yourself.
 9. Before the offer goes out: `get_estimate_checks` (positions without a price or quantity, price below cost, model
-   stages without positions — each check lists `fixTools`) and `review_estimate_against_model` to catch model
-   changes, then offer details and the lifecycle through `update_project_estimate` (APPROVED only with
+   stages without positions — each check lists `fixTools`) and `review_estimate_against_model` for model changes
+   a draft does not take by itself (removed and new elements), then offer details and the lifecycle through `update_project_estimate` (APPROVED only with
    `confirm=true`), then `generate_estimate_pdf` when the user wants the PDF and `send_estimate_offer` when the user
    explicitly asks to send it.
 

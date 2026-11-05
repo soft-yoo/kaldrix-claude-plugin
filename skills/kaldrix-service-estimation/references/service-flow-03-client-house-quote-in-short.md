@@ -2,8 +2,9 @@
 
 1. `create_quick_house` creates the house and its primary estimate priced from the model (shell, finishing,
    installations) on the default price list — no need to price stages by hand.
-2. After plan changes: `review_estimate_against_model` + `apply_estimate_model_changes`, then
-   `price_estimate_from_model` for elements not priced yet.
+2. After plan changes: a draft corrects its model quantities by itself — read `get_estimate_model_changes`, then
+   `review_estimate_against_model` for what is left (removed and new elements, approved or offered estimates; see
+   "The estimate follows the model"), and `price_estimate_from_model` for elements not priced yet.
 3. Single positions: `quick_add_estimate_position` (service or own position, with or without a quantity), then
    `preview_estimate_position_scope` / `assign_estimate_position_scope` to measure it from the model, or
    `update_estimate_sheet` for a manual quantity, price or composition; `remove_estimate_position` removes it.

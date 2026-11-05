@@ -48,11 +48,13 @@ The steps below use lower-level tools from the same `workspace` catalog. For a s
 
 The server calculates the composition, the price, and the model version from the sources it is given. It rejects a
 source that does not exist in the current project, does not match the recipe rule, or whose quantity differs from the
-current model. Existing totals remain frozen when the project model changes; compare the saved and the current model
-version and ask the user before recalculating.
+current model. In an editable draft the backend corrects model-measured quantities by itself after each model change
+and records "was → is" entries (`get_estimate_model_changes`); prices stay frozen. Approved and offered estimates stay
+frozen entirely; compare the saved and the current model version and ask the user before recalculating. Details:
+"The estimate follows the model".
 
-`review_estimate_against_model` answers the question the frozen estimate cannot answer by itself: which
-rows no longer match the project. It reports every project-linked row whose element changed its quantity
+`review_estimate_against_model` answers which rows still do not match the project (in a draft, usually only
+removed and new elements remain). It reports every project-linked row whose element changed its quantity
 (`QUANTITY_CHANGED`) or disappeared (`SOURCE_REMOVED`), rows whose service is gone from the price list
 (`SERVICE_REMOVED`), the net amount those differences would add or
 remove, and the rooms no row points at yet — a room counts as priced when a row points at it or at one of its
@@ -74,8 +76,9 @@ element as its own scope and reprices the whole service occurrence. When a new e
 to a position (e.g. a socket priced in another position), ask the user and call `skip_estimate_new_elements`
 (`positionId` = `serviceOccurrenceId`, `elementIds` from that position's `newElements`): amounts stay unchanged, the
 review stops listing the element and counts it in `skippedNewElementCount`; adding it to the position later with
-`replace_estimate_position` clears the skip. Remove a row whose source is gone with
-`remove_estimate_position`, change sources with `assign_estimate_position_scope` (replace), and price a
+`replace_estimate_position` clears the skip. For rows whose source is gone, ask the user: keep them with a manual
+quantity (`detach_estimate_items_from_model`) or remove them (`remove_estimate_items_with_missing_source`,
+`confirm=true`); change sources with `assign_estimate_position_scope` (replace), and price a
 missing room with `quick_add_estimate_position` + `assign_estimate_position_scope`. Always show the user the difference and its amount first.
 
 The review also lists `doubleCounted` (`doubleCountedCount`): groups of positions that take the same quantity from the
