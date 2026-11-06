@@ -138,5 +138,5 @@ tool comes next. Live schemas, `nextTools` and `fixTools` in results stay author
 - Site location: use a point chosen by the user or returned by `find_land_parcel` / `get_land_parcel_at`; never infer
   coordinates from an incomplete address. After `set_project_location` read `get_project_detail`, then
   `get_land_parcel_at` for the saved point. Parcel boundaries are in degrees; never send them to outline tools (metres).
-  Marketplace positions from `list_map_features` are approximate; continue with `get_project_detail` using `targetId`.
+  For a building site returned by `list_map_features`, `targetId` identifies its project; continue with `get_project_detail`.
 - Renovation survey: room ids come from `list_survey_rooms`.

@@ -27,7 +27,10 @@ project, estimate, recipe and position identities distinct. Preserve the
 selected building scope and source provenance, reviewed versions and retry keys.
 
 Explain preview changes before applying them. An approved estimate is frozen;
-follow the backend's supported change workflow. Sending an offer, approving it
+follow the backend's supported change workflow. An editable draft takes model
+quantity changes by itself after each model change; read
+[the estimate follows the model](references/service-flow-30-estimate-follows-the-model.md)
+before applying model changes yourself. Sending an offer, approving it
 or recording a payment requires the user's actual decision and any confirmation
 declared by the tool. A request to review does not authorize a write.
 Replacing saved estimate settings, rows, scopes, prices, recipe composition or

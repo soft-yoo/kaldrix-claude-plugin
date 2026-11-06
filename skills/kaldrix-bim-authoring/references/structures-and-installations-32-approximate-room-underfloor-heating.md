@@ -25,7 +25,7 @@ Clear the target with editLoopOnly=true to restore the requested spacing.
 In whole-room mode (`editLoopOnly=false`, no targetHeatingLength), parameters can repartition fields;
 null targetLoopCount retains existing IDs and may add loops. An explicit targetLoopCount can remove loops.
 Inspect removedCircuitIds, then use `reduce_underfloor_heating` with projects.delete and confirm=true.
-Active estimate references block removal. Saved model undo/redo is currently unavailable. New loop IDs require explicit estimate inclusion.
+Active estimate references block removal. A saved change has no undo; going back means restoring a saved project version (`preview_project_version`, then `restore_project_version` after the user's approval). New loop IDs require explicit estimate inclusion.
 
 Every result includes English warning guidance: UNDERFLOOR_LAYOUT_APPROXIMATE marks schematic routes,
 UNDERFLOOR_TARGET_LENGTH_DIFFERENCE reports a field-target difference above about 10 percent (minimum 0.1 m),

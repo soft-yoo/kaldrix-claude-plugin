@@ -37,6 +37,7 @@ small topic fragments: read the matching fragment, not the complete collection.
 | --- | --- |
 | Understand element relationships and ownership | [Model overview](references/bim-model-overview.md) |
 | Create a house, edit an outline, work with several buildings or renovate | [Building workflow index](references/house-building-workflow.md) |
+| Save a version before a large change, or go back after a mistake | [Project versions](references/house-building-workflow-09-project-versions-save-preview-restore.md) |
 | Plan physical changes or use a geometry batch | [Geometry guide](references/geometry-guide.md), then [batch example](references/geometry-batch-example.md) if needed |
 | Interpret a supplied floor-plan image | [Image analysis](references/floor-plan-image-analysis.md) |
 | Choose installation media, plan routes, connect floors or plan heating | [Installation authoring index](references/installation-authoring.md) |

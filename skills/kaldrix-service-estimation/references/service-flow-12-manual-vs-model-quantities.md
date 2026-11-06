@@ -1,7 +1,8 @@
 ### Manual vs model quantities
 
-A model scope stays linked to its element or measurement: the estimate remembers the model version and
-`review_estimate_against_model` can later report `QUANTITY_CHANGED` or `SOURCE_REMOVED`. A manual quantity
+A model scope stays linked to its element or measurement: the estimate remembers the model version, an editable
+draft corrects its quantity by itself after a model change, and `review_estimate_against_model` reports what is left
+(`QUANTITY_CHANGED` in an approved or offered estimate, `SOURCE_REMOVED`). A manual quantity
 (`serviceQuantity` alone) is a number the user owns: it is never compared with the model. Prefer model scopes for
 everything the model measures (walls, rooms, slabs, openings, installations, saved measurements) and manual
 quantities for work the model does not contain. Do not type a number read from a navigation tool as a manual

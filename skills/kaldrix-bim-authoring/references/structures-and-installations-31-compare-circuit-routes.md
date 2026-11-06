@@ -17,4 +17,4 @@ source quantities produce diagnostics rather than a fabricated cost. The estimat
 
 Present before/after measurements and cost, obtain the user’s confirmation, and call
 `apply_circuit_optimization` with the exact preview input, proposalId and confirm=true.
-A changed model or frozen-price fingerprint requires another preview. Saved model undo/redo is currently unavailable; project history records committed change summaries.
+A changed model or frozen-price fingerprint requires another preview. A saved change has no undo; going back means restoring a saved project version (`preview_project_version`, then `restore_project_version` after the user's approval). Project history records committed change summaries.

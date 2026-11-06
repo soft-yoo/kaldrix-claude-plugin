@@ -39,7 +39,7 @@ estimate measures metres per cable / pipe kind, protection devices and fittings.
    For fully manual line editing use `explode_installation_circuit` with `confirm=true` (`projects.delete`).
    It removes the circuit and creates plain lines, preserving points. The result lists new `installationIds`;
    the routes are then plain installation routes edited in the app (no MCP route tools). CIRCUIT_* estimate sources are lost,
-   so estimate these lines with INSTALLATION_LENGTH. Saved model undo/redo is currently unavailable. Read `get_installation_circuit_layout` and review the loss of circuit estimate sources before confirming conversion. The optional project history only records committed change summaries.
+   so estimate these lines with INSTALLATION_LENGTH. A saved change has no undo; going back means restoring a saved project version (`preview_project_version`, then `restore_project_version` after the user's approval). Read `get_installation_circuit_layout` and review the loss of circuit estimate sources before confirming conversion. The optional project history only records committed change summaries.
 5. Estimate: services on `INSTALLATION_CIRCUIT` with `CIRCUIT_LENGTH` (MB, filter by spec + medium, e.g.
    `[PEX_AL_PEX_16, COLD_WATER, HOT_WATER]`), `CIRCUIT_COUNT` (PCS, e.g. `[B16]`) and `CIRCUIT_FITTING_COUNT`
    (PCS, at least one of `ELBOW`, `TEE`, `BOX`, `END_CAP`). Point services price the outlet itself, circuit services

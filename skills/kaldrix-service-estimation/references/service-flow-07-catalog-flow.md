@@ -45,6 +45,6 @@ it `MANUAL` (quantity typed when the service is added to an estimate) or `FIXED`
 server rejects `PER_SERVICE_UNIT` in another unit. Older components saved that way are returned and priced as
 `MANUAL` with their stored quantity, so `get_service_recipe` already shows the effective `calculationMode`.
 
-Read `kaldrix://supplier/categories`, `kaldrix://supplier/units`, and `kaldrix://supplier/vat-rates` instead of
+Read `kaldrix://estimate/material-categories`, `kaldrix://estimate/units`, and `kaldrix://estimate/vat-rates` instead of
 guessing material categories, units, or VAT values. Service categories are listed at
 `kaldrix://estimation/catalog-categories`.

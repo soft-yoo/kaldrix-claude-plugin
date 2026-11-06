@@ -44,8 +44,7 @@ The single `workspace` catalog includes every domain. For estimates, read `kaldr
 - Construction log: list project entries before reading or adding one; provide explicit occurrence time, type, status and site context. Attach an entry to its construction stage with `stageId` (the stage running today is `defaultStageId`).
 - Construction process after the offer (contract, start of works, stages, acceptance, handover): follow the phase and `nextStepId` of `get_project_workflow` and the section "Construction process" below.
 - Construction budget of a private investor: `get_project_budget`, `add_budget_expense`, `record_budget_payment` (BUDGET module, `budget.*` scopes).
-- Supplier: read the category, unit, VAT-rate and import-mode resources listed in the service catalog before catalog mutations.
-- Company map: `list_map_features` reads company places, bases and building sites (and marketplace layers when the company uses them) in a map rectangle, within a radius or by text. It is read-only; positions and visible objects follow the same person permissions, site access and privacy rules as the app map.
+- Company map: `list_map_features` reads company places, company drawings, bases and building sites in a map rectangle, within a radius or by text. It is read-only; positions and visible objects follow the same person permissions, site access and privacy rules as the app map.
 
 ## Construction process
 

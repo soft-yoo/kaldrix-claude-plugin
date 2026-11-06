@@ -53,9 +53,9 @@ The SHELL stage prices every shell construction system of the estimate building
 with all matching active services of the estimate price list, using the same rules as
 `plan_estimate_element_batch`. Already priced sources and services requiring manual component quantities are
 skipped. Unpriced sources of an existing service get a new complementary position; `addedCount` counts actual new
-positions. Existing rows, quantities and prices stay frozen. Review changed quantities with
-`review_estimate_against_model` and explicitly accept them with `apply_estimate_model_changes`; stage pricing does
-not correct them automatically. Every model quantity is priced once, by the same rule as the review's `doubleCounted`: a whole-system
+positions. Stage pricing keeps existing rows, quantities and prices. Later model changes correct model quantities of
+an editable draft in the background ("The estimate follows the model"); in other estimates review them with
+`review_estimate_against_model` and accept them explicitly with `apply_estimate_model_changes`. Every model quantity is priced once, by the same rule as the review's `doubleCounted`: a whole-system
 service ("Więźba dachowa — całość (zamiast osobnych pozycji)") and per-member services counting the same timber
 ("Krokwie", "Murłata", "Jętki") are never added together — the per-member services win when together they cover the
 whole system, otherwise the whole-system service is added alone. An existing alternative blocks overlapping services
@@ -84,6 +84,7 @@ priced by the SHELL stage). New matching sources get complementary positions eve
 `uncoveredFinishing` once the estimate prices an element of the stage; windows drawn later appear in `newElements`.
 New automatic FINISHING positions can also propose matching ordinary rooms, including a room split off by
 `create_partition`, within their original work section. This does not change the floor-local rules for older or
-manually scoped positions. Review only proposes changes; accepting them requires `apply_estimate_model_changes`.
+manually scoped positions. New elements are never added by themselves; accepting them requires
+`apply_estimate_model_changes`.
 Alternatively, explicitly repeat FINISHING to add missing sources as complementary positions without changing earlier
 rows. To deliberately change selected scopes, use `preview_estimate_position_scope` + `assign_estimate_position_scope`.

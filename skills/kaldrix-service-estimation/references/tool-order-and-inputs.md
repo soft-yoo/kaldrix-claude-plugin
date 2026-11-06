@@ -11,7 +11,7 @@ tool comes next. Live schemas, `nextTools` and `fixTools` in results stay author
   move estimates with `change_estimate_price_list`. A price list used by an estimate is archived with
   `archive_price_list`, not deleted.
 - Resources: check `list_catalog_resources` for duplicates before `create_catalog_resource`; `priceNet` is in the
-  currency of `get_price_list`. Material categories: `kaldrix://supplier/categories`; units: `kaldrix://supplier/units`.
+  currency of `get_price_list`. Material categories: `kaldrix://estimate/material-categories`; units: `kaldrix://estimate/units`.
   After `deactivate_catalog_resource`, review affected services with `list_service_recipes`. Frozen estimate rows keep
   old prices until `refresh_estimation_item_prices`.
 - Services: create resources first, check `list_service_recipes` for duplicates, then `create_service_recipe`.
@@ -43,10 +43,14 @@ tool comes next. Live schemas, `nextTools` and `fixTools` in results stay author
 ## Estimate and model
 
 - `price_estimate_from_model` prices a model; on ESTIMATE_STARTER_PACK_MISSING run
-  `install_construction_starter_pack`. Later quantity changes: `review_estimate_against_model`, show the differences,
-  then `apply_estimate_model_changes` after approval (re-run the review after a rejection). Remove SOURCE_REMOVED /
-  QUANTITY_ZERO scopes as the review describes. Accepting reported quantities only: prefer
-  `apply_estimate_model_changes` over `replace_estimate_position`; refreshing prices is not for quantity changes.
+  `install_construction_starter_pack`. Later quantity changes: an editable draft takes model quantities by itself
+  after each model change — report them from `get_estimate_model_changes` and acknowledge them with
+  `acknowledge_estimate_model_changes` once the user has seen them. Then `review_estimate_against_model` for the rest:
+  `apply_estimate_model_changes` after approval for remaining changes and new elements (re-run the review after a
+  rejection; use only `itemId` values from the latest review). SOURCE_REMOVED / QUANTITY_ZERO rows: keep with
+  `detach_estimate_items_from_model` or remove with `remove_estimate_items_with_missing_source` (`confirm=true`).
+  Accepting reported quantities only: prefer `apply_estimate_model_changes` over `replace_estimate_position`;
+  refreshing prices is not for quantity changes. Topic: "The estimate follows the model" in the service flow.
 - `skip_estimate_new_elements`: adding a skipped element later with `replace_estimate_position` clears the skip.
 - The review summary, coverage gaps and applicability issues match `get_estimate_checks`. VAT_RATES_MIXED /
   VAT_PROJECT_MISMATCH: `apply_project_vat_to_estimate` after confirming that no position needs another rate.

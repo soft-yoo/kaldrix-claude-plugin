@@ -34,3 +34,4 @@ Use live tool schemas and backend decisions for the actual operation.
 - [Offer workflow metadata](service-flow-27-offer-workflow-metadata.md)
 - [Edit the estimate sheet safely](service-flow-28-edit-the-estimate-sheet-safely.md)
 - [Model reports for a building or the whole project](service-flow-29-model-reports-for-a-building-or-the-whole-project.md)
+- [The estimate follows the model](service-flow-30-estimate-follows-the-model.md)

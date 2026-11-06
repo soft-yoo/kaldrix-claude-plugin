@@ -10,7 +10,7 @@ Read:
 - `list_service_recipes`, `get_service_recipe`;
 - `list_project_estimates`, `get_project_estimate`;
 - `list_estimate_sheet_rows`, `preview_estimate_position_scope`;
-- `review_estimate_against_model`, `get_estimate_checks`, `get_estimate_offer_workflow`;
+- `review_estimate_against_model`, `get_estimate_model_changes`, `get_estimate_checks`, `get_estimate_offer_workflow`;
 - lower-level reads: `list_estimation_items`, `preview_manual_estimate_item`, `preview_estimate_budget`,
   `list_estimate_quantity_sources`, `list_element_service_quantities`, `compare_price_lists`.
 
@@ -26,7 +26,8 @@ Write:
 - `create_project_estimate`, `update_project_estimate`, `copy_project_estimate`, `set_primary_project_estimate`,
   `apply_project_vat_to_estimate`;
 - `quick_add_estimate_position`, `assign_estimate_position_scope`, `update_estimate_sheet`,
-  `price_estimate_from_model`, `apply_estimate_model_changes`, `skip_estimate_new_elements`;
+  `price_estimate_from_model`, `apply_estimate_model_changes`, `skip_estimate_new_elements`,
+  `acknowledge_estimate_model_changes`, `detach_estimate_items_from_model`;
 - `set_estimate_sections`, `assign_estimate_position_to_section`;
 - `refresh_estimation_item_prices` (`confirm=true` with `includeOverridden`);
 - `generate_estimate_pdf` (stores a new project document);
@@ -37,6 +38,7 @@ Write:
 Confirmed destructive actions:
 
 - `remove_estimate_position`;
+- `remove_estimate_items_with_missing_source` (positions whose model element is gone);
 - `deactivate_catalog_resource`;
 - `deactivate_service_recipe`;
 - `deactivate_project_estimate`;
