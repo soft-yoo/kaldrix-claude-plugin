@@ -80,6 +80,6 @@ Live schemas, `nextTools` and `fixTools` in results stay authoritative.
   `place_graphic_model`, READY TEXTURE ids to `set_element_surface_texture`.
 - Material lists: `itemKeys` from `get_project_material_list`; quantities follow `get_estimate_purchase_resources`.
   For a saved estimate read `get_estimate_purchase_resources` instead of `get_project_purchase_report` (current model).
-- Supplier materials: `catalogCategoryCode` from `list_supplier_catalog_categories`; UUIDs from
-  `list_supplier_materials`; units, VAT rates, import modes and legacy categories: `kaldrix://supplier/units`,
-  `kaldrix://supplier/vat-rates`, `kaldrix://supplier/import-modes`, `kaldrix://supplier/categories`.
+- Estimate material categories, units and VAT rates: `kaldrix://estimate/material-categories`,
+  `kaldrix://estimate/units` and `kaldrix://estimate/vat-rates`. These reference values support estimate and
+  price-list work; they are not a public wholesaler catalog.
