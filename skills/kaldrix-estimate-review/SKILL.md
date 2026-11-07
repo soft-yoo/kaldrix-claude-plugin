@@ -13,7 +13,7 @@ Never invent project IDs, estimate IDs, prices, model versions or permissions.
    through actual tool results. Ask the user to choose if a name is ambiguous.
 2. Use `list_project_estimates` with the selected `projectId` and `isActive=true`
    by default. Request inactive estimates only when relevant to the user's request.
-   Follow its page/size pagination when necessary. If several estimates match,
+   Follow `nextCursor` while `hasMore` is true when necessary. If several estimates match,
    ask which to review instead of assuming the first is the intended estimate.
    For an estimate selected with `isActive=false`, summarize only the values
    returned by that list. Detail and check tools require an active estimate:

@@ -1,8 +1,8 @@
 {
   "name": "kaldrixprod",
   "displayName": "Kaldrix",
-  "version": "1.0.12",
-  "description": "Work with Kaldrix construction projects, schedules and cost estimates using your connected account.",
+  "version": "1.0.13",
+  "description": "Model buildings in 2D and 3D, price them from your own price lists, and run offers, contracts, schedules, site logs and invoices for your construction projects in Kaldrix.",
   "author": {
     "name": "Soft-Yoo Piotr Kosmala"
   },

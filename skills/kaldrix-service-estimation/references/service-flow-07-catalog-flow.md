@@ -20,7 +20,7 @@
    suspended ceilings, joists, roof framing and battens, post frames, ring beams, build-up layers) to a price list;
    it is idempotent and never changes existing services or prices.
 2. Call `list_catalog_resources` and reuse returned resource IDs. Filter by `kind` when you specifically need
-   materials, labor, or equipment. Follow `page`, `size`, and `hasMore` until all
+   materials, labor, or equipment. Send `nextCursor` as `cursor` while `hasMore` is true until all
    required results have been read.
 3. Create a missing material, labor rate, or equipment rate with `create_catalog_resource`. Enter `priceNet` in
    the stored currency of its target price list; no conversion is performed.

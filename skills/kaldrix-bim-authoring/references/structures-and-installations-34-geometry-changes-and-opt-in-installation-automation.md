@@ -9,9 +9,9 @@ Use `set_building_outline` or `set_floor_outline` with `width` and `depth` for p
 ### Customize one generated roof member section
 
 1. Create the roof and its `ROOF_RAFTERS` system using the normal roof recipe workflow.
-2. Read `get_framing_members(projectId, floorId, systemId, offset, limit)`. This returns a page
-   of stable member IDs, the reviewed `modelVersion`, and `inactiveMemberIds`. Follow `nextOffset`
-   until it is null. Never select by list index or write using IDs from an unsaved preview.
+2. Read `get_framing_members(projectId, floorId, systemId, limit, cursor)`. This returns a page
+   of stable member IDs, the reviewed `modelVersion`, and `inactiveMemberIds`. Follow `nextCursor`
+   until it is absent. Never select by list index or write using IDs from an unsaved preview.
 3. Call `update_framing_member` with that `expectedModelVersion`, the saved member ID, and any of: width/height in
    metres (0.01–1), rafter eaves/ridge end `startExtension`/`endExtension` in metres, `removed: true`, or
    `collarHeightRatio` (0.2–0.9) for a collar tie pair. The generated axis, role, material and connections are
