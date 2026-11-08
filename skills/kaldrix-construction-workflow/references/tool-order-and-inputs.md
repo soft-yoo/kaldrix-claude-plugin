@@ -60,8 +60,9 @@ Live schemas, `nextTools` and `fixTools` in results stay authoritative.
 
 ## Invoices
 
-- `assign_invoice`: references from `list_invoices_to_assign` or `list_invoices`; without `customers.write` set the
-  project customer with `set_project_customer`. `confirm_invoice_match` confirms a suggestion from
+- `assign_invoice`: references from `list_invoices_to_assign` or `list_invoices`; without `customers.write` it leaves
+  the project customer unchanged. To set it later, `set_project_customer` needs `customers.write` and `confirm=true`.
+  `confirm_invoice_match` confirms a suggestion from
   `get_project_invoicing` (with its `contractId`) that the user accepted. `set_invoices_stage`: invoice references from
   `list_invoices`, stage from `get_project_stage_settlement`; invoices must be assigned to the project first.
 - `create_manual_invoice` from a photo or PDF: upload the original first (`upload_document`, or

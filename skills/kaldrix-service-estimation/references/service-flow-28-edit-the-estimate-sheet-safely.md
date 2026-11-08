@@ -10,7 +10,8 @@ The existing `list_estimation_items` remains a compact read contract.
 Collect all scope rows of one `serviceOccurrenceId`, across pages if needed. An own item
 has one scope. Send one patch per existing position to `update_estimate_sheet` and include
 its complete exact `versions` list.
-The writer requires `estimates.write` (the token's and the person's) and a DRAFT estimate.
+The writer requires `estimates.write` (the token's and the person's), `confirm=true` on every call and a DRAFT
+estimate; an APPROVED estimate accepts only `actualQuantity` or `clearActualQuantity`.
 There can be 1 to 200 position patches in one atomic batch. A stale or incomplete version
 set, duplicate position or invalid later row rejects the whole batch.
 

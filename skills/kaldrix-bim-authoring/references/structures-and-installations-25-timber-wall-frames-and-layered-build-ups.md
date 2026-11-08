@@ -2,7 +2,7 @@
 
 A build-up (`BuildUp`) is a project-level layer recipe — timber-frame wall, masonry with plasters, plasterboard
 partition, RC or timber floor, pitched roof. Walls and slabs reference it by `buildUpId`; assigning sets the element
-thickness to the sum of layers (STRUCTURES module).
+thickness to the sum of layers. Build-ups are in PROJECTS; only `get_wall_frame` and `get_slab_frame` need STRUCTURES.
 
 1. `list_build_ups` with `includeTemplates=true` (or `kaldrix://projects/build-up-templates`) — templates such as
    `TIMBER_FRAME_WALL_15`, `TIMBER_FRAME_WALL_20`, `TIMBER_FRAME_INTERNAL_WALL_12`, `TIMBER_FRAME_PARTITION_10`,

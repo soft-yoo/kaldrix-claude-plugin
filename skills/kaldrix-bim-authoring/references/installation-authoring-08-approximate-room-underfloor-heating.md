@@ -35,5 +35,5 @@ The warning reports installed length and the configured threshold. The automatic
 Installed length = field + supply + return; purchase length = installed length × (1 + reserveFactor).
 Do not multiply by two or add reserve again. Corners do not create pipe elbow fittings.
 Frozen estimates change only on explicit refresh; preserve prices, markups and VAT.
-Layout rules bim-layout-14 and quantity engine 1.27.0 use the same geometry for preview, save, read and drawings.
+The current layout rules and quantity engine use the same geometry for preview, save, read and drawings.
 An invalid saved loop returns a finite diagnostic with no fictitious quantity; valid loops remain readable.

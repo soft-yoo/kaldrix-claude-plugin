@@ -13,7 +13,7 @@ and positions without a section come last. `list_estimation_items` returns rows 
 server-calculated `sectionTotals` — never add section subtotals up yourself.
 
 Use `copy_project_estimate` to create an independent DRAFT copy with new item and service-occurrence IDs. A price
-list cannot be created, copied, or deleted.
+list is managed with `create_price_list`, `copy_price_list`, `archive_price_list` and `delete_price_list`.
 
 Only `DRAFT` estimates accept item changes. The allowed lifecycle is `DRAFT -> PENDING_APPROVAL -> APPROVED`, with
 an optional return from `PENDING_APPROVAL` to `DRAFT`. An approved estimate is immutable; copy it to continue work.

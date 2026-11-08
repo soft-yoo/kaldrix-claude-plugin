@@ -29,3 +29,11 @@
 Removals (`remove_installation_points`, `remove_installation_circuits`, `remove_installation_risers`, `remove_structural_members`,
 `remove_framing_system`, `explode_framing_system`, `explode_installation_circuit`, `remove_build_up`) are destructive: ask the user, then set
 `confirm=true`; they need the `projects.delete` scope.
+
+These edits also need `confirm=true` after the user approves the change:
+`apply_installation_circuit_suggestions`, `update_installation_circuit`, `create_underfloor_heating`,
+`update_framing_system`, `update_build_up`, `copy_to_floor`, `update_installation_riser` and
+`update_construction_system`. These need `projects.delete` too: `update_installation_point`,
+`update_framing_member`, `transform_structural_members`, `assign_build_up`, `set_building_construction`,
+`set_foundation_outline`, `set_floor_outline`, `update_installation_riser` when it changes `lines`, `fromFloorId` or
+`toFloorId`, and `update_construction_system` when it changes `params`, `placement` or `stairsEdit`.

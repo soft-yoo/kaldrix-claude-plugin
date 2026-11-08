@@ -65,8 +65,10 @@ step (`get_project_workflow`). Read results, never recompute phases, stage state
    (`realization.write`, confirm=true) closes the construction.
 5. Renovation without a drawing: `workType=RENOVATION` skips the MODEL step; price it with manual quantities (formulas
    such as `2*3,5*2,7` allowed). The process after the offer is the same.
-6. PERSONAL and ORGANIZATION client accounts share the same plan rules; neither the account label nor an access
-   template name grants or excludes client offers, contracts, customers, tasks or invoices. Inspect live module
+6. PERSONAL and ORGANIZATION client accounts share the same plan rules, but a PERSONAL account starts with Offers,
+   Customers, Invoices, Tasks, Time tracking and History switched off, an ORGANIZATION account with History off,
+   until the owner enables them; an access template
+   name grants nothing. Inspect live module
    entitlements and consented scopes. The construction budget (`get_project_budget`, `add_budget_expense`,
    `record_budget_payment`) needs BUDGET, included in Pro/Advanced for new accounts; legacy grants may differ.
 
@@ -88,7 +90,7 @@ For a new house prefer `create_quick_house`; the steps below build or extend a m
 6. Configure existing shared floor and ceiling surfaces with `set_floor_surface_usage`.
 7. Attach openings to physical walls through `add_opening_by_intent`.
 8. Create the roof on the highest floor of its building through `create_roof` (`roof: {}` = the app's default roof; `roofType`, `pitchDegrees` and other fields override it).
-9. Add scoped structures and installations with their typed tools. Start installations with `plan_floor_installations` for the reviewed floor version; choose the needed trades and follow SOURCE → POINTS → CONNECT. Add installation points or room presets, then preview circuits with `suggest_installation_circuits` before `apply_installation_circuit_suggestions`, or use `create_installation_circuit` for a deliberate manual route. Read the plan again after saving.
+9. Add scoped structures and installations with their typed tools. With INSTALLATION_DESIGN, start installations with `plan_floor_installations` for the reviewed floor version; choose the needed trades and follow SOURCE → POINTS → CONNECT. Add installation points or room presets (INSTALLATIONS), then, with INSTALLATION_DESIGN, preview circuits with `suggest_installation_circuits` before `apply_installation_circuit_suggestions`, or use `create_installation_circuit` for a deliberate manual route. Read the plan again after saving.
 10. Validate the whole project with `validate_project_geometry` and render each floor with `render_floor_svg`.
 
 After every write, read the returned model version and use it in the next write. Never guess IDs or silently overwrite a stale model.

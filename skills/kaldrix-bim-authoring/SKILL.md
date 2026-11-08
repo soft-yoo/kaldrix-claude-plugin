@@ -11,11 +11,12 @@ workflow; it never grants access or replaces backend rules.
 
 Read [plan and module access](references/plan-and-module-access.md) before choosing specialist tools.
 
-Review changes with the user before setting `confirm=true`. Overwriting outlines, room labels,
-build-ups, framing members, installation points or structural positions requires both `projects.write`
-and `projects.delete`. Underlay attachment/replacement uses the same scopes. Saved viewpoints and
-texture removal require `graphics.write` and `graphics.delete`. These requirements also apply to
-first-time saves and copy variants of the flagged tools. Batch labels require `projects.delete` and
+Review changes with the user before setting `confirm=true`. `set_floor_outline`, `label_room`,
+`assign_build_up`, `update_framing_member`, `update_installation_point`, `transform_structural_members`
+and `set_floor_plan_underlay` require `projects.write`, `projects.delete` and confirmation, also on a
+first save. `update_build_up` and `copy_to_floor` need `projects.write` and confirmation;
+`set_building_outline` and `update_structural_member` need only `projects.write`. Saved viewpoints and
+texture removal require `graphics.write` and `graphics.delete`. Batch labels require `projects.delete` and
 confirmation; wall/slab updates require confirmation; add-only batches remain write-only.
 
 `create_building_floor`, `fit_roof_to_wall_plates` and `update_opening` require

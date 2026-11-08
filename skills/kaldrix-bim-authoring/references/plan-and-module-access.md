@@ -8,7 +8,8 @@ access from a plan name alone. Account type and hiding a Start section do not ch
   It excludes structures, installations, terrain, schedules and budgets for new accounts.
 - Pro adds construction work, scheduling, budgets, tasks, invoices, time tracking and simple installation points.
 - Advanced adds specialist modules, including STRUCTURES and INSTALLATION_DESIGN, as well as
-  TERRAIN, GRAPHICS and HISTORY. An owner can disable a module included in the account's plan.
+  TERRAIN, GRAPHICS, HISTORY and PROJECT_COPY_SHARING (saving a copy from a 3D view link, sharing a project for
+  copying). An owner can disable a module included in the account's plan.
 - Detailed structural authoring, including ROOF_RAFTERS previews and mutations, requires STRUCTURES.
   Basic roof creation and the roof takeoff remain available with project access. Do not suggest
   enabling STRUCTURES unless the account's returned entitlement actually grants it.
@@ -25,7 +26,8 @@ get_framing_drawing, list_structures and get_timber_schedule use project access 
 Do not bypass an unavailable authoring tool through a generic batch: the backend checks kinds.
 
 If access is denied, explain the server's module/scope decision and direct the owner to
-Settings → Features or Plan and payments. Changing an account profile, adding a menu link or
+Subscription → Features or Subscription → Compare plans (Polish UI: Subskrypcja → Funkcje,
+Porównanie planów). Changing an account profile, adding a menu link or
 renaming a project cannot grant access. Do not promise a price or a feature from a static example;
 read the live catalog and account entitlement.
 

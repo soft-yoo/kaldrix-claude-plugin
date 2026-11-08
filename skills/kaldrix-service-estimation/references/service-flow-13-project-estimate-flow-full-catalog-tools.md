@@ -38,8 +38,8 @@ The steps below use lower-level tools from the same `workspace` catalog. For a s
    its default (zero purchase/indirect costs, profit = the service margin) and the composition unchanged from the
    service (same components and resources, quantities from the service norms). A row with its own profit or an
    edited composition stays hand-priced, so a refresh never replaces its own settings.
-8. Move the estimate through its lifecycle with `update_project_estimate` (omitted fields stay unchanged; APPROVED
-   needs `confirm=true`) and point at the binding one with
+8. Move the estimate through its lifecycle with `update_project_estimate` (omitted fields stay unchanged; every call
+   needs `confirm=true` after the user approves, approval also freezes the estimate) and point at the binding one with
    `set_primary_project_estimate`. The same update tool can set an internal contingency reserve and ordered purchase,
    indirect-cost, and profit rules. Read `kaldrix://estimation/markup-rules` before replacing those rules. VAT is
    stored per row (`vatRate`); gross = net × (1 + VAT) is calculated by the server.

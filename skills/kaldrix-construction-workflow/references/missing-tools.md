@@ -2,14 +2,16 @@
 
 - If the whole MCP connection returns HTTP 403 with `code=MODULE_DISABLED` and `module=AI`,
   the AI access gate runs before `tools/list` and `list_tool_profiles`; those diagnostics cannot run.
-  Ask the account owner to check **Settings → Plan and payments**. If AI is included in the
-  account's current access, enable it in **Settings → Features**. Do not retry automatically.
+  Ask the account owner to check **Subscription → Your subscription**. If AI is included in the
+  account's current access, enable it in **Subscription → Features**. Do not retry automatically.
 - When the MCP connection is available, call `list_tool_profiles`. It reports `activeToolNames` (the same names as `tools/list`),
   `hiddenToolCount`, and `unavailableToolGroups` with the hidden names, exact requirement and next step.
 - `MODULE_NOT_IN_PLAN` means the account's current entitlement excludes the module. Ask the owner
-  to review **Settings → Plan and payments**. A feature switch does not grant an excluded module.
+  to review **Subscription → Compare plans**. A feature switch does not grant an excluded module.
 - `MODULE_DISABLED` means the module is included but it or a dependency was switched off.
-  Ask the owner to check **Settings → Features**, then refresh `tools/list`.
+  Ask the owner to check **Subscription → Features**, then refresh `tools/list`.
+  A tool call refused with error code `MODULE_DISABLED` (for example `allowCopy=true` on a 3D view link without
+  PROJECT_COPY_SHARING) names the module but not whether it is outside the plan or switched off; check both.
 - `MODULE_UNAVAILABLE` does not establish whether a module is outside the plan or switched off.
   Refresh the catalog and inspect the current entitlement and feature state before recommending either change.
 - `MISSING_PERMISSION` names the exact missing OAuth scopes, including any additional write/delete

@@ -7,7 +7,7 @@ overdue amounts, purchase costs, net balance, margin, share of the estimate alre
 cost already spent. Invoices in other currencies are only counted, never converted. Do not recompute these figures
 from estimate rows or invoice lists.
 
-Totals include only KSeF invoices assigned to the project. When they look incomplete, call `list_invoices_to_assign`,
+Totals include KSeF invoices and manually recorded invoices assigned to the project. When they look incomplete, call `list_invoices_to_assign`,
 show its suggestions and assign the invoices the user accepts with `assign_invoice`. A project without a customer can
 get one with `set_project_customer`.
 

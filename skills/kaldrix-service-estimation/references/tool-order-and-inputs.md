@@ -5,7 +5,7 @@ tool comes next. Live schemas, `nextTools` and `fixTools` in results stay author
 
 ## Catalog, services and price lists
 
-- No price list yet (`get_price_list` is empty): `create_price_list` (omit the currency to use the configured one).
+- No price list yet (`get_price_list` fails or `list_price_lists` returns no items): `create_price_list` (omit the currency to use the configured one).
   Copy or convert an existing list with `copy_price_list`: OWN source ids from `list_price_lists`, DEMO ids from
   `list_demo_price_lists`, target currency from `list_price_lists` `currencyOptions`. Then change prices in the copy and
   move estimates with `change_estimate_price_list`. A price list used by an estimate is archived with

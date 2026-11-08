@@ -9,8 +9,8 @@ informational `components` (they never change the total).
 
 For every create, update, copy, or service-add operation, send a stable `idempotencyKey`. If transport or output validation
 fails after a successful write, retry with the same key and exactly the same input. The server replays the earlier
-result for 24 hours and rejects reuse of that key with different input. This replay window belongs to the running
-server process; after a restart, list existing data before retrying.
+result for 24 hours and rejects reuse of that key with different input. Replays are shared by all server instances
+and survive restarts. On `IDEMPOTENCY_IN_PROGRESS`, read the current state before retrying.
 
 `quantityFactor` defaults to `1`. `UP_TO_WHOLE` rounds the calculated amount up to the next whole resource unit.
 For example, 40 m² of painting at a verified consumption of `0.12` liters per m² needs 4.8 liters.

@@ -1,7 +1,8 @@
 ## Offer workflow metadata
 
 Use `get_estimate_offer_workflow` with `estimateId` to inspect server-owned action availability,
-form limits and validity preview. The result contains no recipient information or share token.
+form limits and validity preview. `latestOffer` includes the recipient e-mail and client answer details only with
+`customers.read`; the client link (`shareUrl`) is never returned here.
 Respect `canSend`, `canResend`, `canRevoke` and `sendUnavailableReason`; enabled modules,
 the person's permissions and current document state decide availability. The preview uses the same calendar
 rule as PDF generation and actual send. Without `estimates.write`, every write action is disabled
@@ -60,8 +61,8 @@ service ("Więźba dachowa — całość (zamiast osobnych pozycji)") and per-me
 ("Krokwie", "Murłata", "Jętki") are never added together — the per-member services win when together they cover the
 whole system, otherwise the whole-system service is added alone. An existing alternative blocks overlapping services
 only on its saved sources, so repeating the call never adds the skipped alternative on those sources. Positions on the default roof framing of a roof without
-framing carry the note "Więźba domyślna — skonfiguruj w etapie „Dach i konstrukcja”". `unmatchedSystems` lists systems the price list
-cannot price yet (`unmatchedElements`, elementType CONSTRUCTION_SYSTEM) — install shell services with
+framing carry the note "Więźba domyślna — skonfiguruj w etapie „Dach i konstrukcja”". In the SHELL stage, `unmatchedElements` with elementType CONSTRUCTION_SYSTEM are systems the price list
+cannot price yet — install shell services with
 `install_construction_starter_pack` or add them to the price list; `manualElements` need explicit manual quantities. Requires `estimates.write`, a DRAFT estimate and the current modelVersion.
 
 ### Price the installations and the finishing at once
