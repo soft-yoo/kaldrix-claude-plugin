@@ -20,7 +20,7 @@ estimate measures metres per cable / pipe kind, protection devices and fittings.
    `VENT_EXTRACT`, `INSULATED_DUCT_160` / `EPP_150` for `VENT_INTAKE` / `VENT_EXHAUST`); `usages` hint at branch / main /
    riser. `media[].routingFields` lists available CircuitRoutingInput fields with inclusive `minimum` / `maximum`,
    model `unit` (`m` or `ratio`, 0.02 = 2%), `defaultValue` at the medium `defaultLevel`, and `manualNetwork`
-   applicability. Use these server bounds; `layout.effective` supplies current defaults after a level change.
+   applicability. Use these server bounds; `get_installation_circuit_layout` returns the current effective `levelOffset`, `faceOffset`, `slope` and `reserveFactor` after a level change.
    Drainage exposes slope; other media omit it. A manual node network exposes reserveFactor; DRAIN also exposes slope and levelOffset (available depth).
    Any other spec is rejected with `INSTALLATION_CIRCUIT_SPEC_INVALID` (riser lines:
    `INSTALLATION_RISER_SPEC_INVALID`) and the message lists the allowed ones.

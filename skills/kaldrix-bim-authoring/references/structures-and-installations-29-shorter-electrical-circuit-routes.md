@@ -3,8 +3,9 @@
 
 `validate_floor_geometry` can return `OPTIMIZE_CIRCUIT_ROUTE` for an existing
 POWER or LIGHTING circuit. The backend compares its complete CHAIN and TREE routes, including vertical drops
-and the unchanged reserve factor. `presentation.description` reports before/after metres and the saving;
-`presentation.details` reports junction-box counts. This is a bounded cable-length heuristic, not a global
+and the unchanged reserve factor. Over MCP the action in `availableActions[]` carries its `id`, `modelVersion`,
+`elementIds` and `nextTools`, not the before/after metres shown in the app; `preview_circuit_optimization` returns the
+full before/after routes when the user wants to compare. This is a bounded cable-length heuristic, not a global
 minimum or a price optimization: additional junction boxes can cost more than the saved cable.
 
 Read the proposal, then execute its exact `actionId` and `modelVersion` with

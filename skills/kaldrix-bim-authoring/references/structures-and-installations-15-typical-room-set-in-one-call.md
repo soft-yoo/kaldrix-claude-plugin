@@ -2,7 +2,8 @@
 
 `add_installation_point_preset` (projectId, floorId, spaceId, optional `preset`) places a typical set of points
 in one room, planned by the backend from the room's walls, doors and windows: `KITCHEN`, `BATHROOM`, `ROOM`,
-`LIVING_ROOM`, `HALL` (omit `preset` to use the suggestion from the room type). Every preset adds a switch
+`LIVING_ROOM`, `HALL`, `WC`, `LAUNDRY` (omit `preset` to use the suggestion from the room name and type: a room named
+WC or toaleta gets `WC`, one named pralnia or laundry gets `LAUNDRY`). Every preset adds a switch
 beside the door and a ceiling light point; the rest depends on the preset (worktop sockets, sink, shower,
 radiators under windows…). Use it first, then fine-tune with the tools below.
 

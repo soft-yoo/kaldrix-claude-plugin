@@ -9,6 +9,6 @@ Send this exact value as `expectedModelVersion` to `apply_installation_circuit_s
 An intervening model edit returns `MODEL_VERSION_CONFLICT`; refresh the proposal and let the user review it again.
 Never replace a reviewed version with a newer `get_project_detail` value just to bypass the conflict.
 
-The version parameter is additive and optional for older agents: omission plans from the current snapshot and still
-rejects changes during that operation. It does not promise to apply an older reviewed proposal. A successful write
+`expectedModelVersion` is required on both apply tools: send the `modelVersion` of the reviewed preview. A newer model
+is rejected; read again and review a new preview instead of applying an older proposal. A successful write
 returns actual IDs and the new model version from the same atomic operation. It does not guess IDs in an earlier read.

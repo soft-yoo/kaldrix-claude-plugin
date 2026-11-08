@@ -13,7 +13,7 @@ retain existing model data; see [plan and module access](plan-and-module-access.
    Wall plates, collar ties and an optional ridge beam are parametric. Roof battening includes
    a counter batten on every rafter (`counterBattens`) and battens parallel to the eaves
    every 0.33 m along the slope (`battens`, `battenSpacing` 0.15–0.5, `battenWidth`, `battenHeight`). Battening
-   members have level `COVERING`: BOM lines "Łaty dachowe 5×4" / "Kontrłaty 5×2,5" (`FRAMING_ROLE_LENGTH`, priced by
+   members have level `COVERING`: separate BOM lines for battens and counter battens (`FRAMING_ROLE_LENGTH`, priced by
    services filtered to roles `BATTEN` / `COUNTER_BATTEN`), not part of the roof timber volume or piece count.
    Fascia boards on the eaves and barge boards on the gable edges 2.5×20 (`fasciaBoards`, default on): roles
    `FASCIA` / `BARGE_BOARD`, level `COVERING`, priced in metres ("Deska czołowa i wiatrowa").
@@ -35,10 +35,11 @@ retain existing model data; see [plan and module access](plan-and-module-access.
    Do not create every generated rafter separately. Additional manual beams can be drawn or repeated with
    `add_structural_members` + `array`; they remain independent and need position/support checks after roof changes.
 4. `get_framing_drawing` (`systemId`, or kind + scope for a preview) explains the result like a technical drawing:
-   section across the ridge with every element named (Krokiew, Jętka, Murłata, Kontrłata, Łata, Belka kalenicowa),
+   section across the ridge with every element named in English (Rafter, Collar tie, Wall plate, Counter batten, Batten,
+   Ridge beam),
    roof pitch, ridge / eave / collar heights, overhang and plan spacing chains. Use its `description` to tell the
-   user what goes where. It works for ceilings and joists too (section across the main members: Wieszak,
-   Profil CD60 nośny / montażowy, Profil UD30, Płyta GK, ceiling height and profile spacing).
+   user what goes where. It works for ceilings and joists too (section across the main members: hangers, main and
+   secondary CD profiles, UD profile, plasterboard, ceiling height and profile spacing).
 
 Only use `explode_framing_system` when the user explicitly requests conversion to individually editable members.
 It turns a system into plain structural members for manual editing; it removes the

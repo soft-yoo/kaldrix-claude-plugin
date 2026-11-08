@@ -2,10 +2,9 @@
 
 The MCP surface covers catalog resources, service recipes, estimate creation and copying, service positions,
 sections, model review and quantity refresh, catalog price refresh, estimate-level markups and PDF export.
-The UI's atomic spreadsheet editor is not exposed as an MCP operation: editing several positions in one
-transaction, changing frozen composition details per position, recording actual quantities, setting KNR codes,
-ordering sheet rows and editing custom sheet columns requires the application. `update_estimation_item`
-only changes the fields declared in its schema; do not invent extra arguments or claim those sheet edits succeeded.
+Use `update_estimate_sheet` (1 to 200 positions in one atomic call, `confirm=true`) for multi-position edits,
+composition, executed quantities, KNR codes, row order and extra sheet columns. `update_estimation_item` and
+`update_estimate_sheet` change only the fields declared in their schemas; do not invent extra arguments.
 
 
 ### Services for a selected BIM element

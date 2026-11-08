@@ -18,7 +18,7 @@
    estimate. `add_service_labor_activity` adds a priced labour activity to a service composition.
    `install_construction_starter_pack` adds the ready construction services (installation points and circuits,
    suspended ceilings, joists, roof framing and battens, post frames, ring beams, build-up layers) to a price list;
-   it is idempotent and never changes existing services or prices.
+   it is idempotent: existing names, prices and compositions stay; only missing scope values are completed.
 2. Call `list_catalog_resources` and reuse returned resource IDs. Filter by `kind` when you specifically need
    materials, labor, or equipment. Send `nextCursor` as `cursor` while `hasMore` is true until all
    required results have been read.

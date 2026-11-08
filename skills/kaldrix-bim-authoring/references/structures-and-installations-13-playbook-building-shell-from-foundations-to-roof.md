@@ -8,7 +8,7 @@ removed by the backend from the building technology and geometry — never creat
    (STRIP_FOOTING / RAFT / NONE; RAFT gives a managed RAFT_FOUNDATION), `groundLevel`. After the outline exists,
    `set_ground_floor_build_up` puts the matching ground-floor build-up (on grade or on raft) on the lowest floor slabs.
    Foundation outline: by default the footings / raft follow the building outline. `set_foundation_outline` sets an own
-   outline (perimeter footings along its edges, raft = outline + overhang; null restores the building outline).
+   outline (perimeter footings along its edges, raft = outline + overhang; omit the outline argument, rather than sending null, to follow the building outline again).
    Foundation wall: `update_construction_system` on STRIP_FOOTING with `params.footing.wallHeight` (from the footing
    top; default up to level 0) and `wallMaterial` (CONCRETE_BLOCK default, EXPANDED_CLAY_BLOCK — block count in pcs
    plus mortar; MONOLITHIC_CONCRETE — concrete m³ plus two-sided formwork). Summary: `wallCourses`, `blockCount`.
@@ -18,7 +18,8 @@ removed by the backend from the building technology and geometry — never creat
    `update_construction_system` (`params`, `overrides` per wall, `enabled=false`). Single lintel: `set_opening_lintel`.
 4. Stairs / chimney / railings: `preview_construction_system` → `create_construction_system` (keeps `createOpenings`
    true: stairwell in the ceiling and in the floor above, chimney openings through slabs and roof planes). A warning
-   with `fix = CUT_OPENINGS` → `update_construction_system` `ensureOpenings=true`. Railing around a stairwell on the
+   with `fix = CUT_OPENINGS` means a stairwell or chimney opening is missing: add it with `add_slab_opening` (kind
+   STAIRWELL or CHIMNEY). Railing around a stairwell on the
    upper floor: `placement.host = STAIRWELL`.
    Chimney: `params.chimney.construction` — SYSTEM_CERAMIC (default; block + ceramic pipe + wool), MASONRY_BRICK
    (solid brick; channels `sectionWidth` × `sectionDepth` or a STAINLESS_STEEL liner with `diameter`) or

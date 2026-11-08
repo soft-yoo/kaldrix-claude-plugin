@@ -35,6 +35,12 @@ Write:
 - lower-level writes: `add_catalog_service_to_estimate`, `replace_estimate_position`, `set_estimate_double_count_accepted`,
   `create_estimation_item`, `update_estimation_item`.
 
+Always with `confirm=true` after the user approves: `update_project_estimate`, `apply_project_vat_to_estimate`,
+`update_service_recipe`, `update_catalog_resource`, `change_estimate_price_list`, `update_estimate_sheet`,
+`apply_estimate_model_changes`, `replace_estimate_position`, `update_estimation_item` and `generate_estimate_pdf`.
+Only in some cases: `import_price_list` when it overwrites existing data, `adjust_price_list_prices` unless `dryRun`,
+`assign_estimate_position_scope` when it replaces sources, and `set_estimate_sections` when it deletes sections.
+
 Confirmed destructive actions:
 
 - `remove_estimate_position`;

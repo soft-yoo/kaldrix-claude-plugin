@@ -59,12 +59,13 @@ Editing an acceptance protocol, punch item or warranty defect requires `realizat
    stage, with the nearest unfinished stage (`nextGroupKey`, filter `nextStageOnly=true`); after buying or a delivery
    mark them with `set_material_list_items_state` (BOUGHT, DELIVERED, TO_BUY). The state survives estimate changes; a
    changed quantity after the purchase shows as `quantityChanged`. PDF and the e-mail to a wholesaler stay in the app.
-   Crews and site hours (SCHEDULE module): `list_crews` shows the company crews (people, trades, subcontractor account);
+   Crews and site hours: crews and assignments need the SCHEDULE module, logging and reading site hours needs
+   TIME_TRACKING (which also needs SCHEDULE). `list_crews` shows the company crews (people, trades, subcontractor account);
    `assign_crew_to_stage` puts a crew or one person on a stage (dates follow the stage unless given) and returns conflicts
    — the same crew or person on another site on the same days — as warnings; a labour-hour stage takes its duration from
    the assigned headcount (`scheduleChanged` — read the schedule again). `get_project_crew_assignments` lists the site's
    assignments. Log hours with `add_time_entry` (yourself, a person, a crew member or a whole crew with headcount) and read
-   the totals per stage and person with `get_project_time_sheet`; there are no costs yet.
+   the totals per stage and person with `get_project_time_sheet` (hours only, no costs).
 5. Stage acceptance: `create_acceptance_protocol` with kind STAGE and the `stageId`, fill it with
    `update_acceptance_protocol` (participants, notes, result), add defects with `create_punch_item` (required for
    ACCEPTED_WITH_DEFECTS), check `signBlockedBy` in `get_acceptance_protocol`, then `sign_acceptance_protocol`
@@ -100,8 +101,10 @@ is the same as for a new construction.
 ### Private investor accounts
 
 A private investor (account type INVESTOR, a PERSONAL workspace) can build or renovate their own house.
-PERSONAL and ORGANIZATION client accounts use the same module and plan rules: the account kind does not exclude
-client offers, contracts, customers, tasks or invoice tools. Use the returned entitlement, enabled modules and
+PERSONAL and ORGANIZATION client accounts use the same plan rules, but a PERSONAL account starts with Offers,
+Customers, Invoices, Tasks, Time tracking and History switched off (an ORGANIZATION account starts with History off);
+the owner can enable them in Subscription → Features.
+Investor portal tools depend on the account kind. Use the returned entitlement, enabled modules and
 person's consented scopes; do not infer access from the account label. KSeF connection management stays in the app.
 For the construction budget, BUDGET must be included and enabled by the account owner. New accounts get it in
 Pro or Advanced; legacy entitlements may differ. The budget tools are `get_project_budget` (limit, stages,
