@@ -5,7 +5,7 @@ The steps below use lower-level tools from the same `workspace` catalog. For a s
 
 1. Call `list_project_estimates` with the project UUID.
 2. Create an empty estimate with `create_project_estimate` when needed.
-3. List its frozen rows with `list_estimation_items`. Both this tool and `list_estimate_sheet_rows` default to 20 compact rows. Follow `hasMore`/`nextPage` to cover the required positions; totals cover the whole estimate. Set `includeComponents=true` for composition and `includeDetails=true` for formulas, notes and provenance. Check `componentsIncluded`/`detailsIncluded`: an omitted list is not proof of missing composition.
+3. List its frozen rows with `list_estimation_items`. Both this tool and `list_estimate_sheet_rows` default to 20 compact rows. Follow `hasMore`/`nextCursor` to cover the required positions; totals cover the whole estimate. Set `includeComponents=true` for composition and `includeDetails=true` for formulas, notes and provenance. Check `componentsIncluded`/`detailsIncluded`: an omitted list is not proof of missing composition.
 4. Add a service with `add_catalog_service_to_estimate`. Either send `serviceQuantity` for one manual scope, or send
    `scopes` with one entry per project element or saved measurement. A project-linked scope carries `floorId`, the
    element (`elementType` + `elementId`) or `measurementId`, the raw `sourceQuantity` with its `sourceUnit`, the

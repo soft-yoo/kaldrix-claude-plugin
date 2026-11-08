@@ -1,6 +1,34 @@
 # Kaldrix plugin for Claude
 
-Work with your Kaldrix construction projects, schedules and cost estimates in Claude.
+Kaldrix is software for small construction companies. With this plugin Claude works
+in your Kaldrix account: it builds a house model, prices it from your own price lists
+and takes the project from the offer to handover.
+
+## What you can do
+
+- **Quote a house in a few steps.** Describe the building (size, storeys, walls, roof,
+  foundations). Kaldrix creates the model and a draft cost estimate from your price list.
+- **Model in 2D and 3D.** Walls, rooms, doors and windows, roofs and roof framing,
+  structures and installations. Kaldrix checks the model after every change.
+- **Review estimates before you share them.** Totals, VAT, markups and warnings;
+  service recipes and price lists.
+- **Run the project.** Offers and client remarks, contracts and annexes, the schedule,
+  the site log, acceptance and handover.
+- **Keep the office in order.** Customers, tasks, documents and received invoices.
+
+Kaldrix validates and saves every change. Deleting data, sending documents to a client
+and replacing prices need your explicit confirmation. Claude can do only what your role
+in the company and the permissions you grant when you connect allow.
+
+## Try asking
+
+- "Find my project Kowalski house and tell me what should happen next."
+- "Prepare a quote for a 10 by 8 metre single-storey masonry house with strip footings and a gable roof."
+- "Check the cost estimate for Kowalski house and explain the warnings before I send it."
+- "Prepare a draft contract from the accepted offer. Do not send it."
+- "Record this supplier invoice and keep the attached PDF."
+
+## Before you start
 
 The plugin connects to the Kaldrix MCP server (`https://api.kaldrix.pl/mcp`)
 and adds guided workflows: project review, cost estimate review, service
@@ -46,7 +74,32 @@ Terms: [kaldrix.pl/app-terms.html](https://kaldrix.pl/app-terms.html)
 
 # Plugin Kaldrix dla Claude (PL)
 
-Pracuj z projektami budowy, harmonogramami i kosztorysami Kaldrix w Claude.
+Kaldrix to program dla małych firm budowlanych. Z tym pluginem Claude pracuje na Twoim
+koncie Kaldrix: tworzy model domu, wycenia go według Twoich cenników i prowadzi
+budowę od oferty do odbioru.
+
+**Co możesz zrobić:**
+
+- wycenić dom w kilku krokach: podajesz wymiary, kondygnacje, ściany, dach i fundamenty,
+  a Kaldrix tworzy model i projekt kosztorysu z Twojego cennika;
+- rysować i poprawiać model 2D i 3D: ściany, pomieszczenia, okna i drzwi, dach z więźbą,
+  konstrukcje i instalacje; Kaldrix sprawdza model po każdej zmianie;
+- sprawdzić kosztorys przed wysłaniem: sumy, VAT, narzuty i ostrzeżenia, a także usługi i cenniki;
+- prowadzić budowę: oferty i uwagi klienta, umowy i aneksy, harmonogram, dziennik budowy i odbiór;
+- uporządkować biuro: klienci, zadania, dokumenty i faktury kosztowe.
+
+Kaldrix sprawdza i zapisuje każdą zmianę. Usunięcie danych, wysłanie dokumentu do klienta
+i zastąpienie cen wymagają Twojego wyraźnego potwierdzenia. Claude może tyle, na ile pozwalają
+Twoja rola w firmie i uprawnienia nadane przy połączeniu.
+
+**Przykładowe polecenia:**
+
+- „Znajdź projekt Dom Kowalskich i powiedz, co trzeba teraz zrobić.”
+- „Przygotuj wycenę parterowego domu murowanego 10 na 8 m z ławami i dachem dwuspadowym.”
+- „Sprawdź kosztorys Domu Kowalskich i wyjaśnij ostrzeżenia, zanim go wyślę.”
+- „Przygotuj projekt umowy z zaakceptowanej oferty. Nie wysyłaj jej.”
+- „Zapisz tę fakturę od dostawcy i zachowaj załączony PDF.”
+
 Potrzebujesz konta Kaldrix. Przy pierwszym połączeniu logujesz się do Kaldrix;
 plugin nie zapisuje haseł ani tokenów. Plugin jest bezpłatny. Przeglądanie danych
 działa zawsze, a tworzenie i zmiana danych wymaga aktywnej subskrypcji Kaldrix.
