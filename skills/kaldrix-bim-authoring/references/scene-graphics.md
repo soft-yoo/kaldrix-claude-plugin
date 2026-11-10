@@ -12,10 +12,9 @@ Without the GRAPHICS module there is no 3D graphics at all: no library, no textu
 
 - `list_graphic_library` searches the Kaldrix graphics library — ready textures and models (furniture, devices
   such as heat pumps, boilers or air conditioners, installations, garden, people) with Polish and English names,
-  manufacturer and links. Use a library item directly: send its `id` as `assetId` or `textureAssetId` in the scene
-  tools. It needs no copy and does not count in the company limits. `copy_graphic_library_item` is only for keeping
-  an own, editable copy in the company library (its own files, counted in the company limits); check
-  `copiedAssetIds` first so you do not copy the same item twice.
+  manufacturer and links. Use a library item directly: send its `id` as `assetId` or `textureAssetId`; no copy,
+  no company limit. `copy_graphic_library_item` only makes an own editable copy (counted in the limits); check
+  `copiedAssetIds` first.
 - `list_graphic_assets` searches the company library (type `TEXTURE` or `MODEL_3D`, text query, status).
   Only `READY` assets can be used in a scene; textures stay `PROCESSING` until the optimizer finishes.
 - `get_graphic_asset` shows one asset with its files and how many projects use it.
@@ -65,6 +64,11 @@ surface of the element. Other textures, the colour and the material of the eleme
 Typical facade: list the floor's `EXTERNAL` walls from `get_project_scene` and set the same texture on
 their outer surface. The outer side depends on the wall direction — when unsure, omit `surface` or ask
 the user to check the 3D view.
+
+## Model instead of a window or door
+
+`set_opening_model` (floor, opening, READY `MODEL_3D` asset, `expectedSceneVersion`) shows the model fitted to a
+`DOOR`/`WINDOW` opening; size and estimate stay. `clear_opening_model` needs `confirm=true`.
 
 ## Texture on a part of a wall side
 

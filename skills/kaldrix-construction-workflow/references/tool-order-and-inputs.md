@@ -78,7 +78,7 @@ Live schemas, `nextTools` and `fixTools` in results stay authoritative.
   `copy_graphic_library_item` only to keep an own, editable copy (check `copiedAssetIds` to avoid duplicates). Own files: check `get_graphic_asset_limits`, upload with
   `upload_graphic_asset_file` or, above the direct limit, `request_graphic_asset_file_upload` + HTTP PUT; send the
   returned `fileId` to `create_graphic_asset`. Do not use document uploads for catalog assets. READY MODEL_3D ids go to
-  `place_graphic_model`, READY TEXTURE ids to `set_element_surface_texture`.
+  `place_graphic_model` or — to replace the default look of a window or door — `set_opening_model`, READY TEXTURE ids to `set_element_surface_texture`.
 - Material lists: `itemKeys` from `get_project_material_list`; quantities follow `get_estimate_purchase_resources`.
   For a saved estimate read `get_estimate_purchase_resources` instead of `get_project_purchase_report` (current model).
 - Estimate material categories, units and VAT rates: `kaldrix://estimate/material-categories`,
