@@ -74,8 +74,8 @@ Live schemas, `nextTools` and `fixTools` in results stay authoritative.
 
 - Documents: larger files go `request_document_upload` → HTTP PUT → `complete_document_upload`. Link imports:
   `kaldrix://documents/link-import-workflow`; categories: `kaldrix://documents/categories`.
-- Graphics: copy library items with `copy_graphic_library_item` before use (check `copiedAssetIds` from
-  `list_graphic_library` to avoid duplicates). Own files: check `get_graphic_asset_limits`, upload with
+- Graphics: use a `list_graphic_library` item directly by its `id` as `assetId` / `textureAssetId`; copy it with
+  `copy_graphic_library_item` only to keep an own, editable copy (check `copiedAssetIds` to avoid duplicates). Own files: check `get_graphic_asset_limits`, upload with
   `upload_graphic_asset_file` or, above the direct limit, `request_graphic_asset_file_upload` + HTTP PUT; send the
   returned `fileId` to `create_graphic_asset`. Do not use document uploads for catalog assets. READY MODEL_3D ids go to
   `place_graphic_model`, READY TEXTURE ids to `set_element_surface_texture`.

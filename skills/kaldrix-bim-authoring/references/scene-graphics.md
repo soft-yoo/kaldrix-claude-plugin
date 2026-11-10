@@ -6,14 +6,15 @@ change quantities, the physical `modelVersion`, estimates or offers. Tools need 
 module and the `graphics.read`, `graphics.write` and `graphics.delete` scopes.
 Project underlays are separate from 3D graphics: their tools use `projects.*` scopes and do not need GRAPHICS.
 
-## Assets come only from the company library
+## Assets come from the company library or the Kaldrix graphics library
 
 Without the GRAPHICS module there is no 3D graphics at all: no library, no textures or models in the scene.
 
 - `list_graphic_library` searches the Kaldrix graphics library — ready textures and models (furniture, devices
   such as heat pumps, boilers or air conditioners, installations, garden, people) with Polish and English names,
-  manufacturer and links. Library items are not used directly: `copy_graphic_library_item` copies one into the
-  company library (its own files, counted in the company limits) and returns a `READY` company asset. Check
+  manufacturer and links. Use a library item directly: send its `id` as `assetId` or `textureAssetId` in the scene
+  tools. It needs no copy and does not count in the company limits. `copy_graphic_library_item` is only for keeping
+  an own, editable copy in the company library (its own files, counted in the company limits); check
   `copiedAssetIds` first so you do not copy the same item twice.
 - `list_graphic_assets` searches the company library (type `TEXTURE` or `MODEL_3D`, text query, status).
   Only `READY` assets can be used in a scene; textures stay `PROCESSING` until the optimizer finishes.

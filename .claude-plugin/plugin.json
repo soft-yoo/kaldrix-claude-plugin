@@ -1,7 +1,7 @@
 {
   "name": "kaldrixprod",
   "displayName": "Kaldrix",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Model buildings in 2D and 3D, price them from your own price lists, and run offers, contracts, schedules, site logs and invoices for your construction projects in Kaldrix.",
   "author": {
     "name": "Soft-Yoo Piotr Kosmala"
