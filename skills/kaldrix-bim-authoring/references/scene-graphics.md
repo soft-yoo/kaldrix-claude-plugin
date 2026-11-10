@@ -8,7 +8,7 @@ Project underlays are separate from 3D graphics: their tools use `projects.*` sc
 
 ## Assets come from the company library or the Kaldrix graphics library
 
-Without the GRAPHICS module there is no 3D graphics at all: no library, no textures or models in the scene.
+Without the GRAPHICS module no library, texture or model is available.
 
 - `list_graphic_library` searches the Kaldrix graphics library — ready textures and models (furniture, devices
   such as heat pumps, boilers or air conditioners, installations, garden, people) with Polish and English names,
@@ -69,6 +69,7 @@ the user to check the 3D view.
 
 `set_opening_model` (floor, opening, READY `MODEL_3D` asset, `expectedSceneVersion`) shows the model fitted to a
 `DOOR`/`WINDOW` opening; size and estimate stay. `clear_opening_model` needs `confirm=true`.
+`set_opening_models` sets one model on all windows or doors of a `FLOOR` or `BUILDING`.
 
 ## Texture on a part of a wall side
 
