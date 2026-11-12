@@ -1,8 +1,28 @@
-# Kaldrix plugin for Claude
+**[Kaldrix.pl](https://kaldrix.pl/)** · [English](https://kaldrix.pl/en.html) — construction cost estimating and 3D house modelling software for small building companies.
+
+# Kaldrix 3D Construction & Cost Estimation: plugin for Claude
 
 Kaldrix is software for small construction companies. With this plugin Claude works
 in your Kaldrix account: it builds a house model, prices it from your own price lists
 and takes the project from the offer to handover.
+
+Kaldrix is made by Soft-Yoo Piotr Kosmala in Poland. It is not related to the "Kaldrix Connect"
+MCP server or to Kaldrix from the game AION 2.
+
+## Quick start
+
+| Client | Start here |
+| --- | --- |
+| Claude Code | `claude plugin marketplace add soft-yoo/kaldrix-claude-plugin`, then `claude plugin install kaldrixprod@kaldrix` |
+| Gemini CLI | `gemini extensions install https://github.com/soft-yoo/kaldrix-mcp-plugins` |
+| ChatGPT | Upload [kaldrix-chatgpt.zip](https://github.com/soft-yoo/kaldrix-mcp-plugins/releases/latest/download/kaldrix-chatgpt.zip) in **Plugins → Add → Upload plugin archive** (developer mode) |
+| Codex | Unpack the same `kaldrix-chatgpt.zip` into `~/.codex/plugins/kaldrixprod` |
+
+Then sign in to Kaldrix when the client asks (`/mcp` in Claude Code, `/mcp auth kaldrix` in Gemini CLI).
+Step-by-step instructions for Gemini CLI, ChatGPT and Codex are in
+[soft-yoo/kaldrix-mcp-plugins](https://github.com/soft-yoo/kaldrix-mcp-plugins#readme).
+Any other MCP client: add the remote server `https://api.kaldrix.pl/mcp`
+(Streamable HTTP) and sign in to Kaldrix with OAuth when the client asks.
 
 ## What you can do
 
@@ -74,9 +94,14 @@ Terms: [kaldrix.pl/app-terms.html](https://kaldrix.pl/app-terms.html)
 
 # Plugin Kaldrix dla Claude (PL)
 
+Strona programu: [kaldrix.pl](https://kaldrix.pl/).
+
 Kaldrix to program dla małych firm budowlanych. Z tym pluginem Claude pracuje na Twoim
 koncie Kaldrix: tworzy model domu, wycenia go według Twoich cenników i prowadzi
 budowę od oferty do odbioru.
+
+Kaldrix tworzy Soft-Yoo Piotr Kosmala. Nie ma związku z serwerem MCP „Kaldrix Connect”
+ani z postacią Kaldrix z gry AION 2.
 
 **Co możesz zrobić:**
 
