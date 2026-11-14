@@ -13,6 +13,9 @@ retain existing model data; see [plan and module access](plan-and-module-access.
    default 2.2 m); `pitchDegrees` is the gentler upper pitch. The eaves overhang may drop at most 0.5 m
    (0.28 m at 60°; the default follows the lower pitch). Rafters are not generated for it (warning); the framing
    system counts only counter battens, battens and fascia boards.
+   A `FLAT` roof may take `parapetHeight` (0.3-1.5 m above the roof top; 0 removes it): the outer walls rise above the
+   roof, the slab sits between them and the eaves overhang must be 0. Other kinds refuse it (`BIM_ROOF_PARAPET_*`).
+   A raised wall keeps its height (`BIM_ROOF_PARAPET_WALL_LOCKED`): change `parapetHeight` with `update_roof`.
    Rooms do not define the roof. Retain `roofAssemblyId`; `list_structures` also lists roof assemblies.
 2. `preview_framing_system` with `kind = ROOF_RAFTERS` (and `roofAssemblyId` when the floor has several roofs).
    Read the current defaults and inspect the preview before choosing sections, spacing and supports.
