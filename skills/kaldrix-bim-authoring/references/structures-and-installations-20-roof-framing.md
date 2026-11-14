@@ -6,7 +6,9 @@ retain existing model data; see [plan and module access](plan-and-module-access.
 
 1. Read the project and retain its `modelVersion`. Set the building outline and create its storeys first.
    Call `create_roof` on the highest building storey with the reviewed version and an idempotency key.
-   Choose `FLAT`, `SHED`, `GABLE` or `HIP`; the effective storey outline supplies the footprint.
+   Choose `FLAT`, `SHED`, `GABLE`, `HIP` or `HALF_HIP`; the effective storey outline supplies the footprint.
+   Over a rectangular outline only: `HALF_HIP` takes `halfHipDepth` (omit for the default), and `GABLE` takes
+   `secondPitchDegrees` for an asymmetric roof (`pitchDegrees` alone in `update_roof` makes it symmetric again).
    Rooms do not define the roof. Retain `roofAssemblyId`; `list_structures` also lists roof assemblies.
 2. `preview_framing_system` with `kind = ROOF_RAFTERS` (and `roofAssemblyId` when the floor has several roofs).
    Read the current defaults and inspect the preview before choosing sections, spacing and supports.
