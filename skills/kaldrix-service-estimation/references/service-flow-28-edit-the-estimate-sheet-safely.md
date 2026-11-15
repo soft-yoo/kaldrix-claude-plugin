@@ -24,6 +24,7 @@ unit; no implicit unit conversion is performed. Omit a field to retain it, and u
 clear flags for completed quantity, manual order or section. For price mode use `CUSTOM`
 (manual selling price) or `COMPOSITION` (the common backend calculator). Keep user-entered
 names, KNR codes and cell texts in their original language.
+Outside RESOURCES estimates, a typed selling price keeps the stored purchase price.
 
 This tool edits existing positions only. It does not copy or deactivate positions.
 After a conflict or an uncertain network result, read the current rows before a new edit.

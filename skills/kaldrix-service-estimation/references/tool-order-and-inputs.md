@@ -39,6 +39,9 @@ tool comes next. Live schemas, `nextTools` and `fixTools` in results stay author
 - Discounts: markup after discount is in `list_estimation_items`; position discounts are set with
   `update_estimate_sheet`. Options: `save_estimate_option_groups`, then `set_estimate_position_option`.
 - Markup rules and their cost bases: read `kaldrix://estimation/markup-rules` before changing them.
+  For the estimate header, send all `PURCHASE_COSTS`, `INDIRECT_COSTS`, and `PROFIT` stages, keeping zero-percent
+  stages, or `[]` to clear the header. Omitted/null rules keep the current list; incomplete lists are rejected.
+  Legacy percent patches must also leave a complete header. Position-level overrides retain their own rules.
 
 ## Estimate and model
 
@@ -47,7 +50,7 @@ tool comes next. Live schemas, `nextTools` and `fixTools` in results stay author
   after each model change — report them from `get_estimate_model_changes` and acknowledge them with
   `acknowledge_estimate_model_changes` once the user has seen them. Then `review_estimate_against_model` for the rest:
   `apply_estimate_model_changes` after approval for remaining changes and new elements (re-run the review after a
-  rejection; use only `itemId` values from the latest review). SOURCE_REMOVED / QUANTITY_ZERO rows: keep with
+  rejection; use only `itemId` values and required `expectedModelVersion` equal to `modelVersion` from the latest review). SOURCE_REMOVED / QUANTITY_ZERO rows: keep with
   `detach_estimate_items_from_model` or remove with `remove_estimate_items_with_missing_source` (`confirm=true`).
   Accepting reported quantities only: prefer `apply_estimate_model_changes` over `replace_estimate_position`;
   refreshing prices is not for quantity changes. Topic: "The estimate follows the model" in the service flow.
@@ -57,6 +60,12 @@ tool comes next. Live schemas, `nextTools` and `fixTools` in results stay author
 
 ## Offer and documents
 
+- Before sending, approval (`update_project_estimate` status APPROVED), or `generate_estimate_pdf`, read
+  `review_estimate_against_model`. Resolve `blockingPublicationItemIds`; warning consent cannot bypass them.
+  For `hasPublicationWarnings`, explain the findings and unacknowledged automatic quantity changes, then send
+  `confirmModelWarnings=true` only after the user agrees and preserve `modelVersion` as `expectedModelVersion`.
+  On `ESTIMATE_MODEL_REVIEW_STALE`, read and explain the new review and obtain a fresh decision.
+  See "Before sending, approving or generating a PDF" in the model-follow reference for refusal codes.
 - Before `send_estimate_offer` check `get_estimate_offer_workflow` (`canSend`) and `get_estimate_checks`; offer details
   and the view used by the STANDARD PDF variant (`presentationMode` SIMPLE or DETAILED) are set with
   `update_project_estimate`; `generate_estimate_pdf` follows it. `update_project_estimate` status changes do not send
@@ -66,3 +75,8 @@ tool comes next. Live schemas, `nextTools` and `fixTools` in results stay author
   fields, so read `get_company_offer_settings` first and send every field to keep.
 - As-built PDF: enter executed quantities with `update_estimate_sheet` (`actualQuantity`) before
   `generate_estimate_as_built_pdf`.
+- Excel: `export_estimate_excel` (`confirm=true`) stores the same XLSX as the app Excel button with the project documents
+  and replaces the previous export. To load a spreadsheet, upload it as a project document (`upload_document` or
+  `request_document_upload` + `complete_document_upload`) and send its id as `documentId` to `import_estimate_rows`
+  (`dryRun=true` first, `sheetName` for another sheet); the file must belong to the same project, reading it needs
+  `documents.read`, and an edited Kaldrix export loads back without a mapping. Saving the Excel needs `price-list.read`.
