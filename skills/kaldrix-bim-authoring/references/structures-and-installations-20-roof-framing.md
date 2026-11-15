@@ -6,8 +6,19 @@ retain existing model data; see [plan and module access](plan-and-module-access.
 
 1. Read the project and retain its `modelVersion`. Set the building outline and create its storeys first.
    Call `create_roof` on the highest building storey with the reviewed version and an idempotency key.
-   Choose `FLAT`, `SHED`, `GABLE` or `HIP`; the effective storey outline supplies the footprint.
+   Choose `FLAT`, `SHED`, `GABLE`, `HIP`, `HALF_HIP` or `MANSARD`; the effective storey outline supplies the footprint.
+   Over a rectangular outline only: `HALF_HIP` takes `halfHipDepth` (omit for the default), and `GABLE` takes
+   `secondPitchDegrees` for an asymmetric roof (`pitchDegrees` alone in `update_roof` makes it symmetric again).
+   `MANSARD` takes `mansardLowerPitchDegrees` (45-80, default 60) and `mansardBreakHeight` (break above the wall line,
+   default 2.2 m); `pitchDegrees` is the gentler upper pitch. The eaves overhang may drop at most 0.5 m
+   (0.28 m at 60°; the default follows the lower pitch). Rafters are not generated for it (warning); the framing
+   system counts only counter battens, battens and fascia boards.
+   A `FLAT` roof may take `parapetHeight` (0.3-1.5 m above the roof top; 0 removes it): the outer walls rise above the
+   roof, the slab sits between them and the eaves overhang must be 0. Other kinds refuse it (`BIM_ROOF_PARAPET_*`).
+   A raised wall keeps its height (`BIM_ROOF_PARAPET_WALL_LOCKED`): change `parapetHeight` with `update_roof`.
    Rooms do not define the roof. Retain `roofAssemblyId`; `list_structures` also lists roof assemblies.
+   Do not remove a wall created or adjusted by a roof on its own, even with the ROOF part disabled:
+   `BIM_ROOF_WALL_MANAGED_BY_ASSEMBLY` requires removing the whole roof first.
 2. `preview_framing_system` with `kind = ROOF_RAFTERS` (and `roofAssemblyId` when the floor has several roofs).
    Read the current defaults and inspect the preview before choosing sections, spacing and supports.
    Wall plates, collar ties and an optional ridge beam are parametric. Roof battening includes
@@ -45,3 +56,8 @@ Only use `explode_framing_system` when the user explicitly requests conversion t
 It turns a system into plain structural members for manual editing; it removes the
 system and its fixings, connectors, boards and FRAMING_* quantities, so it needs `confirm=true` and
 `projects.delete`. `remove_framing_system` deletes the system.
+
+`get_element` framing references may target `ROOF_ASSEMBLY` metadata, not a kind accepted by `list_elements`.
+Inspect roof assemblies with `list_structures`. Missing purlin or wall-plate faces remain flagged settings:
+review and correct the support plan. A converted installation circuit no longer exists; its lines keep their
+geometry and point links, but do not retain a historical `circuitId`. Deleted point links are cleared.
