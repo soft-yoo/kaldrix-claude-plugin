@@ -6,9 +6,13 @@ retain existing model data; see [plan and module access](plan-and-module-access.
 
 1. Read the project and retain its `modelVersion`. Set the building outline and create its storeys first.
    Call `create_roof` on the highest building storey with the reviewed version and an idempotency key.
-   Choose `FLAT`, `SHED`, `GABLE`, `HIP` or `HALF_HIP`; the effective storey outline supplies the footprint.
+   Choose `FLAT`, `SHED`, `GABLE`, `HIP`, `HALF_HIP` or `MANSARD`; the effective storey outline supplies the footprint.
    Over a rectangular outline only: `HALF_HIP` takes `halfHipDepth` (omit for the default), and `GABLE` takes
    `secondPitchDegrees` for an asymmetric roof (`pitchDegrees` alone in `update_roof` makes it symmetric again).
+   `MANSARD` takes `mansardLowerPitchDegrees` (45-80, default 60) and `mansardBreakHeight` (break above the wall line,
+   default 2.2 m); `pitchDegrees` is the gentler upper pitch. The eaves overhang may drop at most 0.5 m
+   (0.28 m at 60°; the default follows the lower pitch). Rafters are not generated for it (warning); the framing
+   system counts only counter battens, battens and fascia boards.
    Rooms do not define the roof. Retain `roofAssemblyId`; `list_structures` also lists roof assemblies.
 2. `preview_framing_system` with `kind = ROOF_RAFTERS` (and `roofAssemblyId` when the floor has several roofs).
    Read the current defaults and inspect the preview before choosing sections, spacing and supports.
