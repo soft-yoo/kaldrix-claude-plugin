@@ -28,6 +28,10 @@ Write:
   `price_estimate_from_model`, `apply_estimate_model_changes`, `skip_estimate_new_elements`,
   `acknowledge_estimate_model_changes`, `detach_estimate_items_from_model`;
 - `set_estimate_sections`, `assign_estimate_position_to_section`;
+- `import_estimate_rows` (spreadsheet rows into a DRAFT estimate as own-price positions; preview with `dryRun=true`,
+  show the mapping, sample positions and row problems to the user, then import; `saveTemplateName` keeps the mapping
+  as a company template for the next file in the same layout; normalise unknown unit texts and VAT in the cells
+  before sending, or use a company template that maps them);
 - `refresh_estimation_item_prices` (`confirm=true` with `includeOverridden`);
 - `generate_estimate_pdf` (stores a new project document);
 - `send_estimate_offer` (`estimates.write`) and `revoke_estimate_offer` (`estimates.delete`), both with `confirm=true`;
